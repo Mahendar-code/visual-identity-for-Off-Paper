@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "ep01",
+    "episode": "1",
+    "title": "Why property is moving on chain",
+    "guest": "Daniel Okafor",
+    "org": "Head of Assets, Example Property Co",
+    "photo": { "file": "photos/cutout/stand-in-man-suit.png", "cutout": true, "zoom": 3.2, "dx": 0.33, "source": "man-suit", "top": 0.07 },
+    "fictional": "Invented guest, organisation and title. The photo is a CC0 stock portrait (see photos.json)."
+  },
+  {
+    "slug": "ep02",
+    "episode": "2",
+    "title": "Settlement in seconds, not days",
+    "guest": "Marcus Hale",
+    "org": "Founder, Example Ledger Labs",
+    "photo": { "file": "photos/cutout/stand-in-man-glasses.png", "cutout": true, "zoom": 1.12, "dx": 0.0, "source": "man-glasses", "top": 0.07 },
+    "fictional": "Invented guest, organisation and title. The photo is a CC0 stock portrait (see photos.json)."
+  },
+  {
+    "slug": "ep03",
+    "episode": "3",
+    "title": "Stablecoins for everyday payments",
+    "guest": "Amara Nwosu",
+    "org": "CEO, Example Payments",
+    "photo": { "file": "photos/cutout/stand-in-woman-headshot.png", "cutout": true, "zoom": 1.32, "dx": 0.0, "source": "woman-headshot", "top": 0.05 },
+    "fictional": "Invented guest, organisation and title. The photo is a CC0 stock portrait (see photos.json)."
+  }
+]

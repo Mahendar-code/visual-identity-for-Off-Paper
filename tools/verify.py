@@ -128,6 +128,16 @@ sizes = {e['slug']: Image.open(f"{D}/3-thumbnails/examples/off-paper-{e['slug']}
 check(cat, 'D06', 'Three finished thumbnails at 16:9, at least 1280 x 720 (1920 x 1080 delivered)', len(sizes) == 3 and all(s == (1920, 1080) for s in sizes.values()), sizes)
 small = {e['slug']: Image.open(f"{D}/3-thumbnails/examples/off-paper-{e['slug']}-thumbnail-1280.png").size for e in ex}
 check(cat, 'D07', 'Each thumbnail also at exactly 1280 x 720', all(s == (1280, 720) for s in small.values()), small)
+fict = json.load(open(os.path.join(ROOT, 'src/examples-fictional.json')))
+alt = {'option-b-silhouette': [e['slug'] for e in ex], 'option-c-fictional': [e['slug'] for e in fict]}
+alt_ok, alt_det = True, []
+for d_, slugs in alt.items():
+    for sl in slugs:
+        b_ = f'{D}/3-thumbnails/examples/{d_}/off-paper-{sl}-thumbnail'
+        ok_ = all(os.path.exists(b_ + x) for x in ('.png', '-1280.png', '.svg')) and Image.open(b_ + '.png').size == (1920, 1080) and Image.open(b_ + '-1280.png').size == (1280, 720)
+        alt_ok &= ok_
+    alt_det.append(f'{d_}: {len(slugs)} thumbnails')
+check(cat, 'D15', 'Alternative example sets (silhouette; invented guests) at 1920 x 1080 and 1280 x 720, with SVGs', alt_ok and all(len(v) == 3 for v in alt.values()), ', '.join(alt_det))
 tpl = f'{D}/3-thumbnails/template/off-paper-thumbnail-template.svg'
 txt = open(tpl).read()
 ET.fromstring(txt)
@@ -171,13 +181,13 @@ check(cat, 'B01', 'Every colour written in code, pages and SVGs is a Tokeniser c
 share, dev = palette_share(cv.resize((1500, 1500), Image.NEAREST), 4)
 check(cat, 'B02', 'Cover pixels: palette colours or opacity blends of two palette colours', share >= 0.995, f'{share * 100:.2f} percent of pixels within 4 RGB units (99.9th percentile deviation {dev:.1f})')
 th_ok = []
-for e in ex:
-    im = Image.open(f"{D}/3-thumbnails/examples/off-paper-{e['slug']}-thumbnail.png").convert('RGB')
+for f_th in sorted(glob.glob(f'{D}/3-thumbnails/examples/**/off-paper-*-thumbnail.png', recursive=True)):
+    im = Image.open(f_th).convert('RGB')
     a = np.asarray(im).copy()
     yy, xx = np.mgrid[0:1080, 0:1920]
     a[(xx - 1440) ** 2 + (yy - 476) ** 2 <= 331 ** 2] = PAL['Slate']  # the photo in the coin is excluded
     s_, d_ = palette_share(Image.fromarray(a), 4)
-    th_ok.append((e['slug'], s_))
+    th_ok.append((os.path.relpath(f_th, f'{D}/3-thumbnails/examples').replace('off-paper-', '').replace('-thumbnail.png', ''), s_))
 check(cat, 'B03', 'Thumbnail pixels outside the photo: palette colours or two-colour blends', all(s >= 0.99 for _, s in th_ok), ', '.join(f'{k} {s * 100:.2f}%' for k, s in th_ok))
 idp = []
 for p in pp[:2]:
@@ -219,7 +229,7 @@ if live == '200':
     check(cat, 'B10', 'Logo files still match a fresh download from the brief links', same, LOGO_URL)
 else:
     check(cat, 'B10', 'Logo files still match a fresh download from the brief links', None, f'not measured: the brief links could not be reached (HTTP {live})')
-svgs = [f'{D}/2-cover/off-paper-cover.svg', tpl] + sorted(glob.glob(f'{D}/3-thumbnails/examples/*.svg'))
+svgs = [f'{D}/2-cover/off-paper-cover.svg', tpl] + sorted(glob.glob(f'{D}/3-thumbnails/examples/**/*.svg', recursive=True))
 ratios = []
 for p in svgs:
     for m in re.finditer(r'<svg id="tokeniser-logo"[^>]*>', open(p).read()):

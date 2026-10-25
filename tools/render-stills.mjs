@@ -52,6 +52,30 @@ for (const ex of examples) {
   console.log('thumbnail', ex.slug);
 }
 
+// Two alternative example sets, made through the same maker:
+//  option B: the same episodes and guests, with the placeholder silhouette instead of a stand-in photo
+//  option C: invented guests, organisations and titles, with the CC0 stock photos
+const SILHOUETTE = { file: 'photos/placeholder-silhouette.png', cutout: true, zoom: 1.0, top: 0.08 };
+const variants = {
+  'option-b-silhouette': examples.map((e) => ({ ...e, photo: SILHOUETTE })),
+  'option-c-fictional': JSON.parse(fs.readFileSync(path.join(ROOT, 'src/examples-fictional.json'), 'utf8')),
+};
+for (const [dir, items] of Object.entries(variants)) {
+  fs.mkdirSync(D(`3-thumbnails/examples/${dir}`), { recursive: true });
+  for (const ex of items) {
+    await page.evaluate(async (e) => {
+      Object.assign(window.makerState, { episode: e.episode, title: e.title, guest: e.guest, org: e.org });
+      await window.setPhoto(`../src/${e.photo.file}`, e.photo);
+    }, ex);
+    await page.waitForTimeout(300);
+    const out = (suffix) => D(`3-thumbnails/examples/${dir}/off-paper-${ex.slug}-thumbnail${suffix}`);
+    fs.writeFileSync(out('.png'), b64(await page.evaluate(() => window.exportPNG(1920))));
+    fs.writeFileSync(out('-1280.png'), b64(await page.evaluate(() => window.exportPNG(1280))));
+    fs.writeFileSync(out('.svg'), await page.evaluate(() => window.exportSVG()));
+    console.log('thumbnail', dir, ex.slug);
+  }
+}
+
 // The empty template: placeholder text, empty photo slot, every slot a named layer.
 await page.evaluate(async () => {
   Object.assign(window.makerState, { episode: '00', title: 'Episode title in sentence case, up to three lines', guest: 'Guest Name', org: 'Role, Organisation' });

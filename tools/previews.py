@@ -17,6 +17,9 @@ def ff(*a):
 ff('-i', f'{D}/2-cover/off-paper-cover-3000.png', '-vf', 'scale=900:900:flags=lanczos', '-q:v', '3', f'{OUT}/cover.jpg')
 for ep in ('ep21', 'ep28', 'ep29'):
     ff('-i', f'{D}/3-thumbnails/examples/off-paper-{ep}-thumbnail.png', '-vf', 'scale=960:540:flags=lanczos', '-q:v', '3', f'{OUT}/{ep}.jpg')
+for opt, eps in (('option-b-silhouette', ('ep21', 'ep28', 'ep29')), ('option-c-fictional', ('ep01', 'ep02', 'ep03'))):
+    for ep in eps:
+        ff('-i', f'{D}/3-thumbnails/examples/{opt}/off-paper-{ep}-thumbnail.png', '-vf', 'scale=960:540:flags=lanczos', '-q:v', '3', f'{OUT}/{opt}-{ep}.jpg')
 ff('-i', f'{D}/3-thumbnails/template/off-paper-thumbnail-template-preview.png', '-vf', 'scale=960:540:flags=lanczos', '-q:v', '3', f'{OUT}/template.jpg')
 
 # storyboard frames from both openings (seconds)

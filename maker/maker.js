@@ -118,7 +118,8 @@ function download(href, name) {
 }
 
 async function loadExample(slug) {
-  const ex = (await (await fetch('../src/examples.json')).json()).find((e) => e.slug === slug);
+  const sets = await Promise.all(['examples', 'examples-fictional'].map(async (f) => (await fetch(`../src/${f}.json`)).json()));
+  const ex = sets.flat().find((e) => e.slug === slug);
   Object.assign(state, { episode: ex.episode, title: ex.title, guest: ex.guest, org: ex.org });
   for (const k of ['episode', 'title', 'guest', 'org']) $(k).value = state[k];
   await setPhoto(`../src/${ex.photo.file}`, ex.photo);

@@ -7,7 +7,9 @@ A producer fills in four fields for each episode: **the episode number, the titl
 | [`../../maker/`](../../maker/) | The thumbnail maker. A free web page that needs no sign-up or installation. This is the easiest option. |
 | [`template/off-paper-thumbnail-template.svg`](template/off-paper-thumbnail-template.svg) | The same layout as a layered SVG, for Figma, Penpot or Inkscape. All three are free. |
 | [`template/off-paper-thumbnail-template-preview.png`](template/off-paper-thumbnail-template-preview.png) | A preview of the blank template. |
-| [`examples/`](examples/) | Three finished thumbnails, each at 1920 x 1080 and 1280 x 720, with its SVG. |
+| [`examples/`](examples/) | Option A: three finished thumbnails, each at 1920 x 1080 and 1280 x 720, with its SVG. |
+| [`examples/option-b-silhouette/`](examples/option-b-silhouette/) | Option B: the same three episodes with the silhouette in place of a photo. |
+| [`examples/option-c-fictional/`](examples/option-c-fictional/) | Option C: three invented guests and titles, with the CC0 stock photos. |
 
 ## Using the maker (about two minutes, no design experience needed)
 
@@ -19,7 +21,7 @@ A producer fills in four fields for each episode: **the episode number, the titl
 6. Look at the **phone preview**, which shows the thumbnail at the size it appears in a feed, and at the **Checks** panel. "Ready to download" appears once all four fields are filled in and the title fits.
 7. Click **Download PNG, 1920 x 1080**, or the 1280 x 720 button. Files are named after the episode, for example `off-paper-ep33-thumbnail.png`.
 
-To start from a finished thumbnail instead, click EP 21, EP 28 or EP 29 at the top of the maker and edit the fields.
+To start from a finished thumbnail instead, click one of the examples at the top of the maker (EP 21, EP 28, EP 29, or the fictional EP 1 to 3) and edit the fields.
 
 ## Editing the SVG in a free design tool
 
@@ -50,3 +52,16 @@ As the brief requests, the examples reuse titles and guests from earlier Redbell
 | EP 21 | Jeremy Hastings, CEO & Founder, Hutly | Episode 21, 00:18 to 01:20: the host introduces Hutly's move into AI-powered property agents |
 | EP 28 | Vincent Gramoli, Founder, Redbelly Network | Episode 28, 05:40 to 06:41: tokenised assets are of limited use without tokenised workflows |
 | EP 29 | Effie Dimitropoulos, CEO, AUDD Stablecoin | Episode 29, 43:21 to 44:29: money held in US dollar stablecoins is money that is not kept onshore |
+
+### Two alternative sets
+
+Pairing a real guest's name with a stranger's photo can mislead if a thumbnail is shared on its own, so two other sets show the same template without that pairing.
+
+- **Option B, [`examples/option-b-silhouette/`](examples/option-b-silhouette/).** The same three episodes, guests and titles, with the template's placeholder silhouette in the coin instead of a photo.
+- **Option C, [`examples/option-c-fictional/`](examples/option-c-fictional/).** Invented guests, organisations and titles with the same three CC0 stock photos. Every organisation is an "Example" company, so nobody real is named. The content is in [`../../src/examples-fictional.json`](../../src/examples-fictional.json).
+
+| Example | Invented guest | Title |
+|---|---|---|
+| EP 1 | Daniel Okafor, Head of Assets, Example Property Co | Why property is moving on chain |
+| EP 2 | Marcus Hale, Founder, Example Ledger Labs | Settlement in seconds, not days |
+| EP 3 | Amara Nwosu, CEO, Example Payments | Stablecoins for everyday payments |

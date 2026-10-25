@@ -68,6 +68,8 @@
   .thumbs figure { margin: 0; }
   .thumbs img { border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
   .thumbs figcaption { font-size: 13px; color: var(--lblue); margin-top: 8px; }
+  h4 { font-size: 18px; font-weight: 700; margin: 36px 0 0; color: var(--lmint); }
+  h4 + p { margin: 6px 0 0; font-size: 14px; }
   .pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
   @media (max-width: 860px) { .pages { grid-template-columns: 1fr; } }
   .pages img { border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
@@ -156,13 +158,18 @@
   <section id="thumbnails"><div class="wrap">
     <h2>Part B: thumbnail template</h2>
     <h3>Four slots, everything else locked.</h3>
-    <p class="muted">A producer fills in the episode, the title, the guest and a photo; a role line is optional. Titles scale down to fit within three lines and never goes below 96 px on the 1920 canvas, which is 18 px on a 360 px phone thumbnail. Guests sit in the coin with the 30 percent Slate overlay; devices sit at 70 percent on colour and 60 percent on the photo.</p>
+    <p class="muted">A producer fills in the episode, the title, the guest and a photo; a role line is optional. Titles scale down to fit within three lines and never go below 96 px on the 1920 canvas, which is 18 px on a 360 px phone thumbnail. Guests sit in the coin with the 30 percent Slate overlay; devices sit at 70 percent on colour and 60 percent on the photo.</p>
+    <h4>Option A: past episodes with CC0 stock photos</h4><p class="muted">Titles and guests from Redbelly Insights episodes, as the brief asks, with stand-in photos.</p>
     <div class="thumbs">
       <figure><img src="src/previews/ep21.jpg" alt="Episode 21 thumbnail"><figcaption>EP 21, Jeremy Hastings (Hutly). Stand-in content from Redbelly Insights Episode 21; CC0 stand-in photo.</figcaption></figure>
       <figure><img src="src/previews/ep28.jpg" alt="Episode 28 thumbnail"><figcaption>EP 28, Vincent Gramoli (Redbelly Network). Stand-in content from Episode 28; CC0 stand-in photo.</figcaption></figure>
       <figure><img src="src/previews/ep29.jpg" alt="Episode 29 thumbnail"><figcaption>EP 29, Effie Dimitropoulos (AUDD Stablecoin). Stand-in content from Episode 29; CC0 stand-in photo.</figcaption></figure>
     </div>
-    <p class="muted" style="font-size:14px;margin-top:14px">The photos are CC0 stock portraits standing in for each guest's approved headshot; they are not photos of the named guests. Sources and dated licence proof are in <a href="deliverables/6-licences/LICENCES.md">LICENCES.md</a>.</p>
+    <p class="muted" style="font-size:14px;margin-top:14px">The photos are CC0 stock portraits from nappy.co standing in for each guest's approved headshot; they do not show the people named. Photo pages and dated licence proof: <a href="deliverables/6-licences/LICENCES.md">LICENCES.md</a>.</p>
+    <h4>Option B: the same episodes with a silhouette</h4><p class="muted">The real stand-in guests and titles, with no photo of anyone in the coin.</p>
+    <div class="thumbs"><figure><img src="src/previews/option-b-silhouette-ep21.jpg" alt="Episode 21 thumbnail with silhouette"><figcaption>EP 21, Jeremy Hastings (Hutly). Same stand-in episode, no photo.</figcaption></figure><figure><img src="src/previews/option-b-silhouette-ep28.jpg" alt="Episode 28 thumbnail with silhouette"><figcaption>EP 28, Vincent Gramoli (Redbelly Network). Same stand-in episode, no photo.</figcaption></figure><figure><img src="src/previews/option-b-silhouette-ep29.jpg" alt="Episode 29 thumbnail with silhouette"><figcaption>EP 29, Effie Dimitropoulos (AUDD Stablecoin). Same stand-in episode, no photo.</figcaption></figure></div>
+    <h4>Option C: invented guests with stock photos</h4><p class="muted">Names, organisations and titles are made up (every organisation is an "Example" company), so the CC0 stock photos match nobody real.</p>
+    <div class="thumbs"><figure><img src="src/previews/option-c-fictional-ep01.jpg" alt="Fictional episode 1 thumbnail"><figcaption>EP 1, Daniel Okafor. Invented guest and title; CC0 stock photo.</figcaption></figure><figure><img src="src/previews/option-c-fictional-ep02.jpg" alt="Fictional episode 2 thumbnail"><figcaption>EP 2, Marcus Hale. Invented guest and title; CC0 stock photo.</figcaption></figure><figure><img src="src/previews/option-c-fictional-ep03.jpg" alt="Fictional episode 3 thumbnail"><figcaption>EP 3, Amara Nwosu. Invented guest and title; CC0 stock photo.</figcaption></figure></div>
     <div class="actions"><a class="btn" href="maker/">Open the thumbnail maker</a><a class="btn ghost" href="deliverables/3-thumbnails/template/off-paper-thumbnail-template.svg" download>SVG template</a><a class="btn ghost" href="deliverables/3-thumbnails/README.md">How to use the template</a></div>
   </div></section>
 

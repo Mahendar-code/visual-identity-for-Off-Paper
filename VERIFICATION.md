@@ -1,10 +1,10 @@
 # Verification
 
-77 of 77 checks passed, 0 failed, 0 skipped (2026-10-25 06:49 UTC). Skipped means the check could not be measured on this machine; it is not counted as a pass. Every check measures the delivered files; the commands that produce this report are in `tools/build.sh`.
+78 of 78 checks passed, 0 failed, 0 skipped (2026-10-25 08:25 UTC). Skipped means the check could not be measured on this machine; it is not counted as a pass. Every check measures the delivered files; the commands that produce this report are in `tools/build.sh`.
 
 | Area | Checks | Passed | Skipped |
 |---|---|---|---|
-| Deliverables and specs | 14 | 14 | 0 |
+| Deliverables and specs | 15 | 15 | 0 |
 | Brand rules | 18 | 18 | 0 |
 | Licences | 4 | 4 | 0 |
 | Audio | 10 | 10 | 0 |
@@ -22,6 +22,7 @@
 | D05 | Cover art editable SVG parses | pass | 0 0 3000 3000 |
 | D06 | Three finished thumbnails at 16:9, at least 1280 x 720 (1920 x 1080 delivered) | pass | {'ep21': (1920, 1080), 'ep28': (1920, 1080), 'ep29': (1920, 1080)} |
 | D07 | Each thumbnail also at exactly 1280 x 720 | pass | {'ep21': (1280, 720), 'ep28': (1280, 720), 'ep29': (1280, 720)} |
+| D15 | Alternative example sets (silhouette; invented guests) at 1920 x 1080 and 1280 x 720, with SVGs | pass | option-b-silhouette: 3 thumbnails, option-c-fictional: 3 thumbnails |
 | D08 | Editable SVG template: every slot is a named layer, file is valid XML | pass | Episode number, Title, Guest name, Guest organisation, Guest photo, guest-photo-image |
 | D09 | Free browser thumbnail maker present | pass | maker/index.html (no account, no install) |
 | D10 | Opening landscape: MP4, H.264, 1920 x 1080, 60 fps, 10 to 20 s, AAC 48 kHz stereo | pass | h264 High 1920x1080 60/1 yuv420p bt709, 16.00 s, aac 48000 Hz 2 ch, 16.0 MB |
@@ -34,9 +35,9 @@
 
 | ID | Check | Result | Measured |
 |---|---|---|---|
-| B01 | Every colour written in code, pages and SVGs is a Tokeniser colour | pass | 30 files scanned; no colour outside the 7 palette hex values |
+| B01 | Every colour written in code, pages and SVGs is a Tokeniser colour | pass | 36 files scanned; no colour outside the 7 palette hex values |
 | B02 | Cover pixels: palette colours or opacity blends of two palette colours | pass | 100.00 percent of pixels within 4 RGB units (99.9th percentile deviation 2.1) |
-| B03 | Thumbnail pixels outside the photo: palette colours or two-colour blends | pass | ep21 100.00%, ep28 100.00%, ep29 100.00% |
+| B03 | Thumbnail pixels outside the photo: palette colours or two-colour blends | pass | ep21 100.00%, ep28 100.00%, ep29 100.00%, option-b-silhouette/ep21 100.00%, option-b-silhouette/ep28 100.00%, option-b-silhouette/ep29 100.00%, option-c-fictional/ep01 100.00%, option-c-fictional/ep02 100.00%, option-c-fictional/ep03 100.00% |
 | B04 | Identity sheet pages 1 and 2: palette colours or two-colour blends | pass | 99.96%, 100.00% (page 3 holds photos and is not audited) |
 | B05 | Opening frames as rendered (20 sampled): every pixel is a mix of palette colours, nothing outside their gamut | pass | lowest frame 100.00% inside the gamut of the palette (layers of palette colours at opacity: sky, light, rings, vignette, grain); 81.4% are a blend of just two. After H.264 4:2:0 encoding, 98.3% on average (colour bleeding at sharp Mint edges) |
 | B06 | Montserrat is the only typeface embedded in the identity PDF | pass | Montserrat-Bold, Montserrat-Medium, Montserrat-Regular, Montserrat-SemiBold |
@@ -44,11 +45,11 @@
 | B08 | Bundled font files are Montserrat (SIL OFL 1.1, from Google Fonts) | pass | Montserrat-Bold.ttf, Montserrat-ExtraBold.ttf, Montserrat-Medium.ttf, Montserrat-Regular.ttf, Montserrat-SemiBold.ttf |
 | B09 | Logo files are byte-identical to the supplied files (SHA-256) | pass | tokeniser-logo-on-dark 6952027cc97a, tokeniser-logo-slate-green-icon 56d05ff1ba1e, tokeniser-logo-on-mint 483ed1e207e5 |
 | B10 | Logo files still match a fresh download from the brief links | pass | https://taskboard.redbellydao.network/brand/tokeniser/ |
-| B11 | Logo never stretched: placed width/height equals the artwork ratio in every SVG | pass | 5 placements, worst 0.012% off |
+| B11 | Logo never stretched: placed width/height equals the artwork ratio in every SVG | pass | 11 placements, worst 0.012% off |
 | B12 | Logo as rendered on the cover matches the supplied artwork pixel for pixel (not recoloured) | pass | PSNR 35.9 dB against the supplied PNG scaled to 943x156 |
 | B13 | Opening draws no text except the show name (logo is the supplied image) | pass | NAME_TOP, NAME_TOP, NAME_TOP, NAME_SUB |
 | B14 | Device and photo opacity rules: 70 on colour, 60 on photos, 30 percent Slate photo overlay | pass | src/brand.js RULE, template layers, cover layers, opening layers |
-| B15 | The show name is never written another way, anywhere in the repository | pass | 42 text files scanned; the name comes from one constant |
+| B15 | The show name is never written another way, anywhere in the repository | pass | 49 text files scanned; the name comes from one constant |
 | B16 | Video and SVG titles carry the exact show name | pass | MP4 title tags, SVG <title> elements |
 | B17 | No hype language in any visible text (rockets, moons, price talk) | pass | none found |
 | B18 | No personal credit anywhere: no names, handles, signatures or made-by lines, in files or metadata | pass | text, MP4 tags, PDF author and PNG metadata all clean |
@@ -97,7 +98,7 @@
 
 | ID | Check | Result | Measured |
 |---|---|---|---|
-| U01 | Maker loads with no errors | pass | ready in 181 ms |
+| U01 | Maker loads with no errors | pass | ready in 182 ms |
 | U02 | Every input has a label | pass | all labelled |
 | U03 | Uploaded JPG is placed in the coin and treated as a photo | pass | cutout=false |
 | U04 | Photo framing sliders appear after upload | pass |  |
@@ -108,7 +109,7 @@
 | U09 | Download 1280 gives a 1280 x 720 PNG | pass | off-paper-ep33-thumbnail-1280.png 1280x720 |
 | U10 | Downloaded SVG keeps every slot as a named, editable layer | pass | Episode number, Title, Guest name, Guest organisation, Guest photo |
 | U11 | Downloaded SVG is self-contained (photo and logo embedded) | pass | all href are data: URIs |
-| U12 | Time from opening the maker to a finished PNG | pass | 1.8 s for 4 fields, 1 upload, 1 click (automated) |
+| U12 | Time from opening the maker to a finished PNG | pass | 3.0 s for 4 fields, 1 upload, 1 click (automated) |
 | U13 | The SVG renders outside the browser (resvg, Montserrat only) | pass | 1920x1080; compared with the maker PNG in verify.py |
 | U14 | A transparent PNG is detected as a cut-out | pass |  |
 | U15 | Titles of every length: at least 96 px, 3 lines or a warning | pass | 11ch:124px/1l 28ch:124px/3l 31ch:124px/3l 32ch:124px/3l 45ch:96px/3l 60ch:96px/5l/warn 106ch:96px/8l/warn |

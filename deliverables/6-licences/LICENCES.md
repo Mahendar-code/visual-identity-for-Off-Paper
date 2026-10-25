@@ -17,9 +17,11 @@ Off Paper has not recorded an episode yet, so the brief asks for example thumbna
 
 | Used in | Title on Nappy | Nappy account | Photo page | Original file | Size | SHA-256 of the file in this repository |
 |---|---|---|---|---|---|---|
-| EP 21 thumbnail | Man in suit | NappyStock | https://nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz | https://images.nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz.jpg | 1707 x 2560 | `1a2e853da590631fe005f709f4a2510c1a1e941fc4459f6e561852a134c0c98b` |
-| EP 28 thumbnail, photo example on the identity sheet | male portrait | 3ee71b65 | https://nappy.co/photo/MAa023BNp212G1miDe2OL | https://images.nappy.co/photo/MAa023BNp212G1miDe2OL.jpg | 1920 x 2880 | `ef8a367c62c285672413bada481c981de5e2747771f318ae1ff785e87a32aef3` |
-| EP 29 thumbnail, maker tests | Womens Lifestyle Headshot | starnes | https://nappy.co/photo/oQPjaaRQjJB50NIVDsqnS | https://images.nappy.co/photo/oQPjaaRQjJB50NIVDsqnS.jpg | 5409 x 3606 | `a42aa629e5828d4021e8b5be02eef15a6fce043110de0e063da8b975a455e952` |
+| EP 21 thumbnail; fictional EP 1 | Man in suit | NappyStock | https://nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz | https://images.nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz.jpg | 1707 x 2560 | `1a2e853da590631fe005f709f4a2510c1a1e941fc4459f6e561852a134c0c98b` |
+| EP 28 thumbnail; fictional EP 2; photo example on the identity sheet | male portrait | 3ee71b65 | https://nappy.co/photo/MAa023BNp212G1miDe2OL | https://images.nappy.co/photo/MAa023BNp212G1miDe2OL.jpg | 1920 x 2880 | `ef8a367c62c285672413bada481c981de5e2747771f318ae1ff785e87a32aef3` |
+| EP 29 thumbnail; fictional EP 3; maker tests | Womens Lifestyle Headshot | starnes | https://nappy.co/photo/oQPjaaRQjJB50NIVDsqnS | https://images.nappy.co/photo/oQPjaaRQjJB50NIVDsqnS.jpg | 5409 x 3606 | `a42aa629e5828d4021e8b5be02eef15a6fce043110de0e063da8b975a455e952` |
+
+The option B thumbnails and the blank template use `src/photos/placeholder-silhouette.png`, a plain grey head-and-shoulders shape drawn for this project; it shows no one. In option C the guests, organisations and titles are invented, so the stock photos are not tied to any real person.
 
 All three were downloaded on 22 October 2026. [`src/photos/photos.json`](../../src/photos/photos.json) holds the same record as data. Check L01 in `tools/verify.py` re-hashes each file and confirms that its page capture shows the public domain mark.
 

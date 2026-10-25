@@ -1,11 +1,11 @@
 {
  "summary": {
-  "total": 77,
-  "passed": 77,
+  "total": 78,
+  "passed": 78,
   "failed": 0,
   "skipped": 0,
   "visual": 31,
-  "when": "2026-10-25 06:49 UTC"
+  "when": "2026-10-25 08:25 UTC"
  },
  "checks": [
   {
@@ -63,6 +63,14 @@
    "pass": true,
    "status": "pass",
    "detail": "{'ep21': (1280, 720), 'ep28': (1280, 720), 'ep29': (1280, 720)}"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D15",
+   "name": "Alternative example sets (silhouette; invented guests) at 1920 x 1080 and 1280 x 720, with SVGs",
+   "pass": true,
+   "status": "pass",
+   "detail": "option-b-silhouette: 3 thumbnails, option-c-fictional: 3 thumbnails"
   },
   {
    "cat": "Deliverables and specs",
@@ -126,7 +134,7 @@
    "name": "Every colour written in code, pages and SVGs is a Tokeniser colour",
    "pass": true,
    "status": "pass",
-   "detail": "30 files scanned; no colour outside the 7 palette hex values"
+   "detail": "36 files scanned; no colour outside the 7 palette hex values"
   },
   {
    "cat": "Brand rules",
@@ -142,7 +150,7 @@
    "name": "Thumbnail pixels outside the photo: palette colours or two-colour blends",
    "pass": true,
    "status": "pass",
-   "detail": "ep21 100.00%, ep28 100.00%, ep29 100.00%"
+   "detail": "ep21 100.00%, ep28 100.00%, ep29 100.00%, option-b-silhouette/ep21 100.00%, option-b-silhouette/ep28 100.00%, option-b-silhouette/ep29 100.00%, option-c-fictional/ep01 100.00%, option-c-fictional/ep02 100.00%, option-c-fictional/ep03 100.00%"
   },
   {
    "cat": "Brand rules",
@@ -206,7 +214,7 @@
    "name": "Logo never stretched: placed width/height equals the artwork ratio in every SVG",
    "pass": true,
    "status": "pass",
-   "detail": "5 placements, worst 0.012% off"
+   "detail": "11 placements, worst 0.012% off"
   },
   {
    "cat": "Brand rules",
@@ -238,7 +246,7 @@
    "name": "The show name is never written another way, anywhere in the repository",
    "pass": true,
    "status": "pass",
-   "detail": "42 text files scanned; the name comes from one constant"
+   "detail": "49 text files scanned; the name comes from one constant"
   },
   {
    "cat": "Brand rules",
@@ -470,7 +478,7 @@
    "name": "Maker loads with no errors",
    "pass": true,
    "status": "pass",
-   "detail": "ready in 181 ms"
+   "detail": "ready in 182 ms"
   },
   {
    "cat": "Template usability (browser tests)",
@@ -558,7 +566,7 @@
    "name": "Time from opening the maker to a finished PNG",
    "pass": true,
    "status": "pass",
-   "detail": "1.8 s for 4 fields, 1 upload, 1 click (automated)"
+   "detail": "3.0 s for 4 fields, 1 upload, 1 click (automated)"
   },
   {
    "cat": "Template usability (browser tests)",
