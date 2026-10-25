@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Off Paper - Powered by Tokeniser, cover art</title>
+<style>html,body{margin:0;background:#343740}svg{display:block}</style>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+import { loadFonts } from './brand.js';
+import { coverSVG } from './cover.js';
+await loadFonts();
+const size = Number(new URLSearchParams(location.search).get('size') || 3000);
+document.getElementById('stage').innerHTML = coverSVG({ size });
+await document.fonts.ready;
+await Promise.all([...document.images].map((i) => i.decode?.().catch(() => {})));
+await new Promise((r) => setTimeout(r, 200));
+window.ready = true;
+</script>
+</body>
+</html>

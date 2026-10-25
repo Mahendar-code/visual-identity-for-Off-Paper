@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Off Paper - Powered by Tokeniser, thumbnail render</title>
+<style>html,body{margin:0;background:#343740}svg{display:block}</style>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+// Render harness: ?ep=ep28 renders one example from examples.json; ?template=1 renders the empty template.
+import { loadFonts } from './brand.js';
+import { thumbnailSVG } from './thumbnail.js';
+await loadFonts();
+const q = new URLSearchParams(location.search);
+const examples = await (await fetch('./examples.json')).json();
+const ex = q.get('template') ? { episode: '00', title: 'Episode title goes here in sentence case', guest: 'Guest Name', org: 'Role, Organisation' } : examples.find((e) => e.slug === q.get('ep'));
+let photo;
+if (ex.photo) {
+  const im = new Image();
+  im.src = ex.photo.file;
+  await im.decode();
+  photo = { href: ex.photo.file, w: im.naturalWidth, h: im.naturalHeight, ...ex.photo };
+}
+const { svg, layout } = thumbnailSVG(ex, { photo });
+document.getElementById('stage').innerHTML = svg;
+window.layout = layout;
+await document.fonts.ready;
+await Promise.all([...document.querySelectorAll('image')].map((i) => new Promise((r) => { const t = new Image(); t.onload = t.onerror = r; t.src = i.getAttribute('href'); })));
+await new Promise((r) => setTimeout(r, 300));
+window.ready = true;
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "ep21",
+    "episode": "21",
+    "title": "The agentic AI pivot in property",
+    "guest": "Jeremy Hastings",
+    "org": "CEO & Founder, Hutly",
+    "photo": {
+      "file": "photos/cutout/stand-in-man-suit.png",
+      "cutout": true,
+      "zoom": 3.2,
+      "dx": 0.33,
+      "source": "man-suit",
+      "top": 0.07
+    },
+    "stand_in": {
+      "episode": "Redbelly Insights - Episode 21, 18 December 2025",
+      "guest": "Jeremy Hastings, CEO & Founder Hutly (as listed on redbelly.network/ama)",
+      "title_basis": "00:18 to 01:20 of the episode: the host introduces 'an amazing pivot' at Hutly, and asks how Hutly expanded into 'AI powered property agents'."
+    }
+  },
+  {
+    "slug": "ep28",
+    "episode": "28",
+    "title": "The value is in the workflow",
+    "guest": "Vincent Gramoli",
+    "org": "Founder, Redbelly Network",
+    "photo": {
+      "file": "photos/cutout/stand-in-man-glasses.png",
+      "cutout": true,
+      "zoom": 1.12,
+      "dx": 0.0,
+      "source": "man-glasses",
+      "top": 0.07
+    },
+    "stand_in": {
+      "episode": "Redbelly Insights - Episode 28, 11 June 2026",
+      "guest": "Vincent Gramoli (as listed on redbelly.network/ama), Founder of Redbelly Network",
+      "title_basis": "05:40 to 06:41 of the episode: 'There is limited use in the tokenised assets, right? If you don't have the tokenised workflows around it' ... 'this whole workflow is much more valuable than the digital representation of the invoice itself.'"
+    }
+  },
+  {
+    "slug": "ep29",
+    "episode": "29",
+    "title": "Keeping digital dollars onshore",
+    "guest": "Effie Dimitropoulos",
+    "org": "CEO, AUDD Stablecoin",
+    "photo": {
+      "file": "photos/cutout/stand-in-woman-headshot.png",
+      "cutout": true,
+      "zoom": 1.32,
+      "dx": 0.0,
+      "source": "woman-headshot",
+      "top": 0.05
+    },
+    "stand_in": {
+      "episode": "Redbelly Insights - Episode 29, 9 July 2026",
+      "guest": "Effie Dimitropoulos (as listed on redbelly.network/ama), CEO, AUDD Stablecoin (her on-screen title in the episode)",
+      "title_basis": "43:21 to 44:29 of the episode: 'every time you're using a US dollar ... it's money that's not sitting onshore.'"
+    }
+  }
+]

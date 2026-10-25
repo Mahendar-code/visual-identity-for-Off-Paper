@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off Paper - Powered by Tokeniser</title>
+<meta name="description" content="The look of Off Paper - Powered by Tokeniser: identity sheet, cover, episode thumbnails and a 16-second opening.">
+<link rel="icon" href="src/logos/tokeniser-logo-on-mint.png">
+<style>
+  @font-face { font-family: Montserrat; font-weight: 400; src: url(src/fonts/Montserrat-Regular.ttf) format('truetype'); font-display: swap; }
+  @font-face { font-family: Montserrat; font-weight: 500; src: url(src/fonts/Montserrat-Medium.ttf) format('truetype'); font-display: swap; }
+  @font-face { font-family: Montserrat; font-weight: 600; src: url(src/fonts/Montserrat-SemiBold.ttf) format('truetype'); font-display: swap; }
+  @font-face { font-family: Montserrat; font-weight: 700; src: url(src/fonts/Montserrat-Bold.ttf) format('truetype'); font-display: swap; }
+  :root { --slate:#343740; --mint:#A2FFC8; --lmint:#DAFDE5; --lblue:#C9DBF1; --blue:#323B70; --teal:#009C9C; --line: rgba(201,219,241,0.22); }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--slate); color: var(--lmint); font-family: Montserrat, system-ui, sans-serif; font-weight: 500; line-height: 1.55; }
+  a { color: var(--mint); }
+  img, video { max-width: 100%; display: block; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+  header.top { position: sticky; top: 0; z-index: 5; background: rgba(52,55,64,0.94); backdrop-filter: blur(6px); border-bottom: 2px solid var(--mint); }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 62px; }
+  .nm { font-weight: 700; color: var(--mint); font-size: 17px; white-space: nowrap; }
+  .nm span { font-weight: 500; color: var(--lmint); }
+  nav a { color: var(--lblue); text-decoration: none; font-weight: 600; font-size: 14px; margin-left: 20px; }
+  nav a:hover { color: var(--mint); }
+  @media (max-width: 760px) { nav { display: none; } }
+  .hero { position: relative; background: var(--blue); }
+  .hero video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--slate); }
+  .hero .ctl { position: absolute; right: clamp(12px, 3vw, 32px); bottom: clamp(12px, 3vw, 28px); display: flex; gap: 10px; }
+  .btn { display: inline-block; font: 700 14px Montserrat, sans-serif; padding: 11px 16px; border-radius: 8px; border: 2px solid var(--mint); background: var(--mint); color: var(--slate); text-decoration: none; cursor: pointer; }
+  .btn.ghost { background: rgba(52,55,64,0.6); color: var(--mint); }
+  .intro { padding: clamp(36px, 6vw, 72px) 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: end; }
+  @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } }
+  h1 { font-size: clamp(34px, 5vw, 60px); line-height: 1.05; margin: 0 0 14px; font-weight: 700; color: var(--lmint); }
+  h1 em { font-style: normal; color: var(--mint); }
+  .lede { font-size: clamp(17px, 1.6vw, 20px); color: var(--lblue); margin: 0; }
+  section { padding: clamp(40px, 6vw, 80px) 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin: 0 0 10px; }
+  h3 { font-size: clamp(24px, 3vw, 34px); margin: 0 0 16px; font-weight: 700; line-height: 1.15; }
+  .muted { color: var(--lblue); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+  @media (max-width: 860px) { .cards { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .cards { grid-template-columns: 1fr; } }
+  .card { border: 1.5px solid var(--line); border-radius: 10px; padding: 16px 18px; text-decoration: none; color: var(--lmint); background: rgba(50,59,112,0.35); display: block; }
+  .card:hover { border-color: var(--mint); }
+  .card b { display: block; font-size: 16px; margin-bottom: 4px; }
+  .card .n { color: var(--mint); font-weight: 700; font-size: 13px; letter-spacing: 0.12em; }
+  .card span { color: var(--lblue); font-size: 14px; }
+  .players { display: grid; grid-template-columns: 1fr minmax(0, 300px); gap: 24px; align-items: start; }
+  @media (max-width: 760px) { .players { grid-template-columns: 1fr; } .players .v { max-width: 300px; } }
+  .players video { width: 100%; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); background: var(--slate); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 18px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); }
+  th { color: var(--lblue); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; }
+  td:first-child { white-space: nowrap; color: var(--mint); font-weight: 600; }
+  .tablewrap { overflow-x: auto; }
+  .tablewrap table { min-width: 640px; }
+  .specs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+  .specs li { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px; color: var(--lblue); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
+  @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+  .sizes { display: flex; align-items: end; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
+  .sizes figure { margin: 0; text-align: center; color: var(--lblue); font-size: 12px; }
+  .sizes img { border-radius: 6px; margin: 0 auto 6px; }
+  .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  @media (max-width: 860px) { .thumbs { grid-template-columns: 1fr; } }
+  .thumbs figure { margin: 0; }
+  .thumbs img { border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
+  .thumbs figcaption { font-size: 13px; color: var(--lblue); margin-top: 8px; }
+  .pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  @media (max-width: 860px) { .pages { grid-template-columns: 1fr; } }
+  .pages img { border-radius: 6px; box-shadow: 0 0 0 1px var(--line); }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .checks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+  @media (max-width: 860px) { .checks { grid-template-columns: 1fr 1fr; } }
+  .check { border: 1.5px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .check b { color: var(--mint); font-size: 24px; display: block; }
+  .check span { color: var(--lblue); font-size: 13px; }
+  footer { border-top: 2px solid var(--mint); padding: 28px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer img { height: 26px; width: auto; }
+  code { font-size: 0.92em; color: var(--lmint); background: rgba(50,59,112,0.6); padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="nm">Off Paper <span>- Powered by Tokeniser</span></div>
+  <nav><a href="#opening">Opening</a><a href="#cover">Cover</a><a href="#thumbnails">Thumbnails</a><a href="#identity">Identity</a><a href="#licences">Licences and checks</a></nav>
+</div></header>
+
+<div class="hero">
+  <video id="hero" src="deliverables/4-opening/off-paper-opening-landscape.mp4" poster="src/previews/landscape-poster.jpg" autoplay muted playsinline loop preload="metadata"></video>
+  <div class="ctl"><button class="btn ghost" id="sound" type="button">Play with sound</button></div>
+</div>
+
+<main>
+  <div class="wrap intro">
+    <div>
+      <h2>Redbelly Insights, relaunched</h2>
+      <h1>Real ground, <em>lifted on chain.</em></h1>
+      <p class="lede">A single look for the show, made from nothing but the seven Tokeniser colours, Montserrat and the Tokeniser logo files from the brief. Each piece is built on one horizon line: under it lies the real world, rings rising off it are the tokens, and rails running in to it are the chain.</p>
+    </div>
+    <div>
+      <p class="muted" style="margin:0">The cover, the thumbnails and the opening all read their name, colours and shapes from <code>src/brand.js</code>, so a change made there shows up everywhere at once.</p>
+      <div class="actions"><a class="btn" href="maker/">Make a thumbnail</a><a class="btn ghost" href="deliverables/1-identity/off-paper-identity-sheet.pdf">Identity sheet (PDF)</a></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="cards" id="deliverables">
+      <a class="card" href="deliverables/1-identity/off-paper-identity-sheet.pdf"><span class="n">1</span><b>Identity sheet</b><span>3-page PDF (Montserrat embedded) and PNGs: colour, type, name, logo, devices, photos, motion.</span></a>
+      <a class="card" href="deliverables/2-cover/off-paper-cover-3000.png"><span class="n">2</span><b>Cover art</b><span>3000 x 3000 PNG and JPG, 1400 x 1400 JPG, editable SVG.</span></a>
+      <a class="card" href="maker/"><span class="n">3</span><b>Thumbnail template</b><span>Free browser maker and an SVG template for Figma, Penpot or Inkscape, plus three finished examples.</span></a>
+      <a class="card" href="#opening"><span class="n">4</span><b>Opening sequence</b><span>16 s, 16:9 and 9:16, 1080p, 60 fps, H.264 with AAC stereo. Original score as WAV.</span></a>
+      <a class="card" href="deliverables/5-project-files/README.md"><span class="n">5</span><b>Project files</b><span>All source: <code>src/</code> (every visual) and <code>tools/</code> (renderers, score, checks).</span></a>
+      <a class="card" href="deliverables/6-licences/LICENCES.md"><span class="n">6</span><b>Licence proof</b><span>Montserrat OFL, original score, and dated proof for each CC0 stand-in photo.</span></a>
+    </div>
+  </div>
+
+  <section id="opening"><div class="wrap">
+    <h2>Part C: opening sequence</h2>
+    <h3>Ground, lift, run, mark. Sixteen seconds, no words.</h3>
+    <div class="players">
+      <div><video controls preload="metadata" poster="src/previews/landscape-poster.jpg" src="deliverables/4-opening/off-paper-opening-landscape.mp4"></video></div>
+      <div class="v"><video controls preload="metadata" poster="src/previews/vertical-poster.jpg" src="deliverables/4-opening/off-paper-opening-vertical.mp4"></video></div>
+    </div>
+    <ul class="specs"><li>1920 x 1080 and 1080 x 1920</li><li>60 fps, H.264 High, BT.709</li><li>AAC 48 kHz stereo</li><li>-16 LUFS integrated</li><li>Ends on solid Slate</li><li>Each format laid out for itself, not cropped</li></ul>
+    <div class="tablewrap"><table>
+      <tr><th>Time</th><th>Picture</th><th>Sound</th></tr>
+      <tr><td>0.0 to 3.6 s</td><td>Dawn opens along the horizon; light reaches across a ridgeline landscape, a sweep passes over the hills.</td><td>A pure high tone and a breath of air; the sweep crosses the stereo field with the light. Gm9 pad.</td></tr>
+      <tr><td>3.6 to 7.5 s</td><td>The contours of the central hill lift off one by one, become perfect rings and turn towards the camera. The land flattens into rails.</td><td>One bell per ring, rising through E flat lydian. The pulse starts at 6 s.</td></tr>
+      <tr><td>7.5 to 9.0 s</td><td>The rings take their places along the rail, facing the camera; more condense out of the distance.</td><td>Bb/D to Cm9; ticks and plucks join.</td></tr>
+      <tr><td>9.0 to 11.8 s</td><td>The camera runs the rail through the rings; light pulses race along the rails.</td><td>A whoosh as each ring passes, timed from the camera path; a riser.</td></tr>
+      <tr><td>11.8 to 12.0 s</td><td>The last ring turns edge-on and becomes a line.</td><td>60 ms of true silence.</td></tr>
+      <tr><td>12.0 to 15.0 s</td><td>The line becomes the horizon; "Off Paper" rises out of it, "- Powered by Tokeniser" and the logo appear beneath; rings lift off the line as on the cover.</td><td>Impact and resolve to B flat major (Bbmaj9); a glass tap for the name, the sub line and the logo.</td></tr>
+      <tr><td>15.0 to 16.0 s</td><td>Fade to solid Slate, held for a straight cut into the episode.</td><td>Fade to digital silence at 15.75 s.</td></tr>
+    </table></div>
+  </div></section>
+
+  <section id="cover"><div class="wrap two">
+    <div><img src="src/previews/cover.jpg" alt="Off Paper - Powered by Tokeniser cover art" width="900" height="900" style="border-radius:8px"></div>
+    <div>
+      <h2>Part B: cover art</h2>
+      <h3>The name stands on the horizon; six tokens lift off it.</h3>
+      <p class="muted">The lowest ring lies flat on the line, like land; each one above has turned a little further, until the top one faces you. The horizon is also the rule of the name lockup, and the ground lines below flatten into rails as they reach it.</p>
+      <div class="sizes">
+        <figure><img src="src/previews/cover.jpg" width="160" height="160" alt="">160 px</figure>
+        <figure><img src="src/previews/cover.jpg" width="100" height="100" alt="">100 px</figure>
+        <figure><img src="src/previews/cover.jpg" width="55" height="55" alt="">55 px</figure>
+      </div>
+      <div class="actions"><a class="btn" href="deliverables/2-cover/off-paper-cover-3000.png" download>Cover PNG 3000</a><a class="btn ghost" href="deliverables/2-cover/off-paper-cover-1400.jpg" download>JPG 1400</a><a class="btn ghost" href="deliverables/2-cover/off-paper-cover.svg" download>SVG</a></div>
+    </div>
+  </div></section>
+
+  <section id="thumbnails"><div class="wrap">
+    <h2>Part B: thumbnail template</h2>
+    <h3>Four slots, everything else locked.</h3>
+    <p class="muted">A producer fills in the episode, the title, the guest and a photo; a role line is optional. Titles scale down to fit within three lines and never goes below 96 px on the 1920 canvas, which is 18 px on a 360 px phone thumbnail. Guests sit in the coin with the 30 percent Slate overlay; devices sit at 70 percent on colour and 60 percent on the photo.</p>
+    <div class="thumbs">
+      <figure><img src="src/previews/ep21.jpg" alt="Episode 21 thumbnail"><figcaption>EP 21, Jeremy Hastings (Hutly). Stand-in content from Redbelly Insights Episode 21; CC0 stand-in photo.</figcaption></figure>
+      <figure><img src="src/previews/ep28.jpg" alt="Episode 28 thumbnail"><figcaption>EP 28, Vincent Gramoli (Redbelly Network). Stand-in content from Episode 28; CC0 stand-in photo.</figcaption></figure>
+      <figure><img src="src/previews/ep29.jpg" alt="Episode 29 thumbnail"><figcaption>EP 29, Effie Dimitropoulos (AUDD Stablecoin). Stand-in content from Episode 29; CC0 stand-in photo.</figcaption></figure>
+    </div>
+    <p class="muted" style="font-size:14px;margin-top:14px">The photos are CC0 stock portraits standing in for each guest's approved headshot; they are not photos of the named guests. Sources and dated licence proof are in <a href="deliverables/6-licences/LICENCES.md">LICENCES.md</a>.</p>
+    <div class="actions"><a class="btn" href="maker/">Open the thumbnail maker</a><a class="btn ghost" href="deliverables/3-thumbnails/template/off-paper-thumbnail-template.svg" download>SVG template</a><a class="btn ghost" href="deliverables/3-thumbnails/README.md">How to use the template</a></div>
+  </div></section>
+
+  <section id="identity"><div class="wrap">
+    <h2>Part A: visual identity</h2>
+    <h3>Tokeniser colours, Montserrat and the supplied logo, nothing else.</h3>
+    <div class="pages">
+      <a href="deliverables/1-identity/off-paper-identity-sheet-page-1.png"><img src="deliverables/1-identity/off-paper-identity-sheet-page-1.png" alt="Identity sheet page 1: idea, name, logo"></a>
+      <a href="deliverables/1-identity/off-paper-identity-sheet-page-2.png"><img src="deliverables/1-identity/off-paper-identity-sheet-page-2.png" alt="Identity sheet page 2: colour and type"></a>
+      <a href="deliverables/1-identity/off-paper-identity-sheet-page-3.png"><img src="deliverables/1-identity/off-paper-identity-sheet-page-3.png" alt="Identity sheet page 3: devices, photos, motion"></a>
+    </div>
+    <div class="actions"><a class="btn" href="deliverables/1-identity/off-paper-identity-sheet.pdf">Identity sheet PDF</a><a class="btn ghost" href="deliverables/1-identity/off-paper-identity-sheet.png">Single PNG</a></div>
+  </div></section>
+
+  <section id="licences"><div class="wrap">
+    <h2>Licences and checks</h2>
+    <h3>Every asset is made for the show, supplied by the brief, or CC0.</h3>
+    <div class="tablewrap"><table>
+      <tr><th>Asset</th><th>Source</th><th>Licence</th></tr>
+      <tr><td>Montserrat</td><td>Google Fonts, as linked in the brief</td><td>SIL Open Font License 1.1 (commercial use allowed). Copy included.</td></tr>
+      <tr><td>Tokeniser logos</td><td>The three files linked in the brief</td><td>Client brand assets, used unaltered (SHA-256 checked).</td></tr>
+      <tr><td>Music and sound</td><td>Synthesised in <code>tools/score.py</code></td><td>Original work: no samples, loops, libraries, AI music or voice.</td></tr>
+      <tr><td>Stand-in guest photos</td><td>nappy.co, three photos (page links in LICENCES.md)</td><td>CC0 1.0, commercial use allowed, no attribution needed. Dated screenshots of each photo page and the licence page included.</td></tr>
+      <tr><td>Graphics, cover, thumbnails, animation</td><td>Generated from <code>src/</code></td><td>Original work.</td></tr>
+    </table></div>
+    <div class="checks" id="checks">
+      <div class="check"><b data-k="total">-</b><span>automated checks</span></div>
+      <div class="check"><b data-k="passed">-</b><span>passed</span></div>
+      <div class="check"><b data-k="visual">-</b><span>visual quality and usability checks</span></div>
+      <div class="check"><b data-k="failed">-</b><span>failed</span></div>
+    </div>
+    <p class="muted" style="margin-top:14px">Specs, palette, fonts, logo integrity, the show name, licences, legibility on a phone, motion smoothness and the template itself are all tested. Full report: <a href="VERIFICATION.md">VERIFICATION.md</a>.</p>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="nm">Off Paper <span>- Powered by Tokeniser</span></div>
+  <img src="src/logos/tokeniser-logo-on-dark.png" alt="Tokeniser" style="height:auto;width:180px">
+</div></footer>
+
+<script>
+  const hero = document.getElementById('hero');
+  document.getElementById('sound').addEventListener('click', (e) => {
+    hero.muted = false; hero.loop = false; hero.currentTime = 0; hero.play();
+    e.currentTarget.hidden = true;
+  });
+  fetch('verification.json').then((r) => r.json()).then((v) => {
+    document.querySelectorAll('#checks [data-k]').forEach((el) => { el.textContent = v.summary[el.dataset.k]; });
+  }).catch(() => {});
+</script>
+</body>
+</html>

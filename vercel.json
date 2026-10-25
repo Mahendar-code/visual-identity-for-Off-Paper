@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    { "source": "/(.*)\\.md", "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }] },
+    { "source": "/deliverables/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }] }
+  ]
+}

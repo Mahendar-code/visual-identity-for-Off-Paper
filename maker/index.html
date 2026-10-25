@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thumbnail Maker · Off Paper - Powered by Tokeniser</title>
+<meta name="description" content="Make an Off Paper - Powered by Tokeniser episode thumbnail in the browser: four slots, a phone preview and PNG or SVG export.">
+<style>
+  :root { --slate:#343740; --mint:#A2FFC8; --lmint:#DAFDE5; --lblue:#C9DBF1; --blue:#323B70; --teal:#009C9C; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--slate); color: var(--lmint); font-family: Montserrat, system-ui, sans-serif; }
+  a { color: var(--mint); }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px clamp(16px, 4vw, 48px); border-bottom: 2px solid var(--mint); }
+  header .name { font-weight: 700; color: var(--mint); font-size: 18px; }
+  header .name span { font-weight: 500; color: var(--lmint); }
+  header nav a { font-weight: 600; font-size: 14px; text-decoration: none; margin-left: 18px; }
+  main { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: clamp(20px, 3vw, 40px); padding: clamp(16px, 3vw, 40px) clamp(16px, 4vw, 48px); max-width: 1600px; margin: 0 auto; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  h1 { font-size: 28px; font-weight: 700; margin: 0 0 6px; color: var(--lmint); }
+  .lede { color: var(--lblue); font-weight: 500; margin: 0 0 22px; line-height: 1.5; font-size: 15px; }
+  .step { margin-bottom: 18px; }
+  .step label, .step .lbl { display: flex; gap: 10px; align-items: baseline; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+  .step .n { color: var(--slate); background: var(--mint); border-radius: 50%; width: 22px; height: 22px; display: inline-grid; place-items: center; font-size: 12px; font-weight: 700; flex: none; }
+  .hint { color: var(--lblue); font-weight: 500; font-size: 12.5px; margin: 6px 0 0; line-height: 1.45; }
+  input[type=text], textarea { width: 100%; background: var(--blue); color: var(--lmint); border: 1.5px solid rgba(201,219,241,0.35); border-radius: 8px; padding: 11px 12px; font: 500 15px Montserrat, sans-serif; }
+  textarea { resize: vertical; min-height: 74px; }
+  input:focus, textarea:focus { outline: 2px solid var(--mint); outline-offset: 1px; }
+  input[type=file] { color: var(--lblue); font: 500 13px Montserrat, sans-serif; }
+  input[type=range] { width: 100%; accent-color: var(--mint); }
+  .sliders label { font-weight: 500; font-size: 12.5px; color: var(--lblue); display: block; margin-top: 8px; }
+  .buttons { display: grid; gap: 10px; margin-top: 22px; }
+  button { font: 700 15px Montserrat, sans-serif; border-radius: 8px; padding: 13px 16px; cursor: pointer; border: 2px solid var(--mint); }
+  button.primary { background: var(--mint); color: var(--slate); }
+  button.secondary { background: transparent; color: var(--mint); }
+  button:focus-visible { outline: 3px solid var(--lmint); outline-offset: 2px; }
+  .examples { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 22px; }
+  .examples button { padding: 7px 11px; font-size: 13px; font-weight: 600; background: transparent; color: var(--lblue); border: 1.5px solid rgba(201,219,241,0.4); }
+  .stage h2 { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin: 0 0 10px; }
+  #preview > svg { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 0 0 1px rgba(201,219,241,0.25); }
+  .checks { display: grid; grid-template-columns: auto 1fr; gap: 28px; margin-top: 28px; align-items: start; }
+  @media (max-width: 700px) { .checks { grid-template-columns: 1fr; } }
+  .phone { width: 392px; max-width: 100%; background: var(--blue); border-radius: 26px; padding: 14px 16px 18px; box-shadow: 0 0 0 2px rgba(201,219,241,0.25); }
+  .phone .card > svg { width: 360px; max-width: 100%; height: auto; display: block; border-radius: 10px; }
+  .phone .meta { display: flex; gap: 10px; margin-top: 10px; }
+  .phone .meta .dot { width: 34px; height: 34px; border-radius: 50%; background: var(--slate); flex: none; }
+  .phone .meta .bars span { display: block; height: 9px; border-radius: 5px; background: rgba(201,219,241,0.35); margin: 4px 0 7px; }
+  .mini > svg { width: 168px; height: auto; display: block; border-radius: 6px; }
+  .mini p { margin: 8px 0 0; }
+  #warnings { margin: 0; padding-left: 18px; color: var(--lmint); font-weight: 500; font-size: 14px; line-height: 1.5; }
+  #warnings li::marker { color: var(--mint); }
+  #ok { color: var(--mint); font-weight: 600; font-size: 14px; }
+  .locked { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(201,219,241,0.25); color: var(--lblue); font-size: 13px; line-height: 1.55; font-weight: 500; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="name">Off Paper <span>- Powered by Tokeniser</span></div>
+  <nav><a href="../">Show identity</a><a href="../deliverables/3-thumbnails/template/off-paper-thumbnail-template.svg" download>SVG template</a></nav>
+</header>
+<main>
+  <section aria-label="Thumbnail details">
+    <h1>Thumbnail Maker</h1>
+    <p class="lede">Fill in the four fields, look at the phone preview, then download. The colours, type, layout and Tokeniser logo cannot be changed here, which keeps every episode consistent.</p>
+    <div class="lbl hint" style="margin:0 0 6px">Start from an example:</div>
+    <div class="examples">
+      <button type="button" data-example="ep21">EP 21</button>
+      <button type="button" data-example="ep28">EP 28</button>
+      <button type="button" data-example="ep29">EP 29</button>
+    </div>
+    <div class="step"><label for="episode"><span class="n">1</span>Episode number</label>
+      <input id="episode" type="text" inputmode="numeric" value="1" maxlength="4" autocomplete="off"></div>
+    <div class="step"><label for="title"><span class="n">2</span>Episode title</label>
+      <textarea id="title" maxlength="90">Episode title in sentence case</textarea>
+      <p class="hint">Aim for about 40 characters. The title shrinks to fit three lines and warns you if it cannot.</p></div>
+    <div class="step"><label for="guest"><span class="n">3</span>Guest name, and role or organisation</label>
+      <input id="guest" type="text" value="Guest Name" autocomplete="off">
+      <input id="org" type="text" value="Role, Organisation" autocomplete="off" style="margin-top:8px" aria-label="Role or organisation (optional)">
+      <p class="hint">The second line is optional: leave it empty to hide it.</p></div>
+    <div class="step"><label for="photo"><span class="n">4</span>Guest photo</label>
+      <input id="photo" type="file" accept="image/png,image/jpeg,image/webp">
+      <p class="hint">Any headshot works. A PNG with a transparent background (a cut-out) looks best. Use photos you have the right to publish.</p>
+      <div id="photo-controls" class="sliders" hidden>
+        <p class="hint" id="cutout-note"></p>
+        <label for="zoom">Size</label><input id="zoom" type="range" min="1" max="3" step="0.01">
+        <label for="dx">Left and right</label><input id="dx" type="range" min="-0.6" max="0.6" step="0.005">
+        <label for="dy">Up and down</label><input id="dy" type="range" min="-0.6" max="0.6" step="0.005">
+      </div></div>
+    <div class="buttons">
+      <button id="dl-png" class="primary" type="button">Download PNG, 1920 × 1080</button>
+      <button id="dl-png-small" class="secondary" type="button">Download PNG, 1280 × 720</button>
+      <button id="dl-svg" class="secondary" type="button">Download editable SVG (Figma, Penpot, Inkscape)</button>
+    </div>
+    <p class="locked">Works offline once loaded, in any current browser, with no account or install. Exports are made in your browser; nothing is uploaded.</p>
+  </section>
+  <section class="stage" aria-label="Preview">
+    <h2>Preview, 1920 × 1080</h2>
+    <div id="preview"></div>
+    <div class="checks">
+      <div>
+        <h2>On a phone, real size</h2>
+        <div class="phone"><div class="card" id="phone-thumb"></div><div class="meta"><div class="dot"></div><div class="bars" style="flex:1"><span style="width:92%"></span><span style="width:60%"></span></div></div></div>
+      </div>
+      <div>
+        <h2>Checks</h2>
+        <p id="ok" hidden>Ready to download: all four fields are filled in and the title fits.</p>
+        <ul id="warnings"></ul>
+        <p class="hint" id="title-size"></p>
+        <h2 style="margin-top:24px">Up next sidebar, 168 px</h2>
+        <div class="mini" id="mini-thumb"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="./maker.js"></script>
+</body>
+</html>

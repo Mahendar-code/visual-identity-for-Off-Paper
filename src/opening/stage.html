@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Off Paper - Powered by Tokeniser, opening render stage</title>
+<style>html,body{margin:0;background:#343740}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script type="module">
+// Render stage for tools/render-opening.mjs: ?format=landscape|vertical, then call window.renderAt(t).
+import { loadFonts } from '../brand.js';
+import { createScene } from './scene.js';
+await loadFonts();
+const fmt = new URLSearchParams(location.search).get('format') || 'landscape';
+const scene = await createScene(document.getElementById('c'), fmt);
+window.renderAt = (t) => { scene.frame(t); };
+window.timing = () => scene.timing;
+window.grab = (type = 'image/png') => scene.canvas.toDataURL(type);
+const t0 = Number(new URLSearchParams(location.search).get('t'));
+if (!Number.isNaN(t0)) scene.frame(t0);
+window.ready = true;
+</script>
+</body>
+</html>

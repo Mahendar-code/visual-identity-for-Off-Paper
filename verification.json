@@ -1,0 +1,628 @@
+{
+ "summary": {
+  "total": 77,
+  "passed": 77,
+  "failed": 0,
+  "skipped": 0,
+  "visual": 31,
+  "when": "2026-10-25 06:49 UTC"
+ },
+ "checks": [
+  {
+   "cat": "Deliverables and specs",
+   "id": "D01",
+   "name": "Identity sheet PDF exists (short, 3 pages)",
+   "pass": true,
+   "status": "pass",
+   "detail": "3 pages, 1440 x 810 pts"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D02",
+   "name": "Identity sheet as images (one per page and one combined)",
+   "pass": true,
+   "status": "pass",
+   "detail": "1920x1080, 1920x1080, 1920x1080"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D03",
+   "name": "Cover art square, at least 1400 x 1400 (3000 x 3000 delivered), PNG",
+   "pass": true,
+   "status": "pass",
+   "detail": "3000x3000 RGB"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D04",
+   "name": "Cover art also as JPG, 3000 and 1400",
+   "pass": true,
+   "status": "pass",
+   "detail": "(3000, 3000), (1400, 1400)"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D05",
+   "name": "Cover art editable SVG parses",
+   "pass": true,
+   "status": "pass",
+   "detail": "0 0 3000 3000"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D06",
+   "name": "Three finished thumbnails at 16:9, at least 1280 x 720 (1920 x 1080 delivered)",
+   "pass": true,
+   "status": "pass",
+   "detail": "{'ep21': (1920, 1080), 'ep28': (1920, 1080), 'ep29': (1920, 1080)}"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D07",
+   "name": "Each thumbnail also at exactly 1280 x 720",
+   "pass": true,
+   "status": "pass",
+   "detail": "{'ep21': (1280, 720), 'ep28': (1280, 720), 'ep29': (1280, 720)}"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D08",
+   "name": "Editable SVG template: every slot is a named layer, file is valid XML",
+   "pass": true,
+   "status": "pass",
+   "detail": "Episode number, Title, Guest name, Guest organisation, Guest photo, guest-photo-image"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D09",
+   "name": "Free browser thumbnail maker present",
+   "pass": true,
+   "status": "pass",
+   "detail": "maker/index.html (no account, no install)"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D10",
+   "name": "Opening landscape: MP4, H.264, 1920 x 1080, 60 fps, 10 to 20 s, AAC 48 kHz stereo",
+   "pass": true,
+   "status": "pass",
+   "detail": "h264 High 1920x1080 60/1 yuv420p bt709, 16.00 s, aac 48000 Hz 2 ch, 16.0 MB"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D11",
+   "name": "Opening vertical: MP4, H.264, 1080 x 1920, 60 fps, 10 to 20 s, AAC 48 kHz stereo",
+   "pass": true,
+   "status": "pass",
+   "detail": "h264 High 1080x1920 60/1 yuv420p bt709, 16.00 s, aac 48000 Hz 2 ch, 15.1 MB"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D12",
+   "name": "Score delivered separately as WAV",
+   "pass": true,
+   "status": "pass",
+   "detail": "48 kHz 24-bit stereo"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D13",
+   "name": "Project files for every piece are in the repository",
+   "pass": true,
+   "status": "pass",
+   "detail": "11 key files, full list in deliverables/5-project-files/README.md"
+  },
+  {
+   "cat": "Deliverables and specs",
+   "id": "D14",
+   "name": "Licence proof files present (font licence, licences file, dated proof for each photo)",
+   "pass": true,
+   "status": "pass",
+   "detail": "deliverables/6-licences/LICENCES.md, deliverables/6-licences/Montserrat-OFL.txt, deliverables/6-licences/proof/nappy-license.png, deliverables/6-licences/proof/photo-man-suit.png, deliverables/6-licences/proof/photo-man-glasses.png, deliverables/6-licences/proof/photo-woman-headshot.png"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B01",
+   "name": "Every colour written in code, pages and SVGs is a Tokeniser colour",
+   "pass": true,
+   "status": "pass",
+   "detail": "30 files scanned; no colour outside the 7 palette hex values"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B02",
+   "name": "Cover pixels: palette colours or opacity blends of two palette colours",
+   "pass": true,
+   "status": "pass",
+   "detail": "100.00 percent of pixels within 4 RGB units (99.9th percentile deviation 2.1)"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B03",
+   "name": "Thumbnail pixels outside the photo: palette colours or two-colour blends",
+   "pass": true,
+   "status": "pass",
+   "detail": "ep21 100.00%, ep28 100.00%, ep29 100.00%"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B04",
+   "name": "Identity sheet pages 1 and 2: palette colours or two-colour blends",
+   "pass": true,
+   "status": "pass",
+   "detail": "99.96%, 100.00% (page 3 holds photos and is not audited)"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B05",
+   "name": "Opening frames as rendered (20 sampled): every pixel is a mix of palette colours, nothing outside their gamut",
+   "pass": true,
+   "status": "pass",
+   "detail": "lowest frame 100.00% inside the gamut of the palette (layers of palette colours at opacity: sky, light, rings, vignette, grain); 81.4% are a blend of just two. After H.264 4:2:0 encoding, 98.3% on average (colour bleeding at sharp Mint edges)"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B06",
+   "name": "Montserrat is the only typeface embedded in the identity PDF",
+   "pass": true,
+   "status": "pass",
+   "detail": "Montserrat-Bold, Montserrat-Medium, Montserrat-Regular, Montserrat-SemiBold"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B07",
+   "name": "Every font-family used to draw the show is Montserrat",
+   "pass": true,
+   "status": "pass",
+   "detail": "Montserrat"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B08",
+   "name": "Bundled font files are Montserrat (SIL OFL 1.1, from Google Fonts)",
+   "pass": true,
+   "status": "pass",
+   "detail": "Montserrat-Bold.ttf, Montserrat-ExtraBold.ttf, Montserrat-Medium.ttf, Montserrat-Regular.ttf, Montserrat-SemiBold.ttf"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B09",
+   "name": "Logo files are byte-identical to the supplied files (SHA-256)",
+   "pass": true,
+   "status": "pass",
+   "detail": "tokeniser-logo-on-dark 6952027cc97a, tokeniser-logo-slate-green-icon 56d05ff1ba1e, tokeniser-logo-on-mint 483ed1e207e5"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B10",
+   "name": "Logo files still match a fresh download from the brief links",
+   "pass": true,
+   "status": "pass",
+   "detail": "https://taskboard.redbellydao.network/brand/tokeniser/"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B11",
+   "name": "Logo never stretched: placed width/height equals the artwork ratio in every SVG",
+   "pass": true,
+   "status": "pass",
+   "detail": "5 placements, worst 0.012% off"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B12",
+   "name": "Logo as rendered on the cover matches the supplied artwork pixel for pixel (not recoloured)",
+   "pass": true,
+   "status": "pass",
+   "detail": "PSNR 35.9 dB against the supplied PNG scaled to 943x156"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B13",
+   "name": "Opening draws no text except the show name (logo is the supplied image)",
+   "pass": true,
+   "status": "pass",
+   "detail": "NAME_TOP, NAME_TOP, NAME_TOP, NAME_SUB"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B14",
+   "name": "Device and photo opacity rules: 70 on colour, 60 on photos, 30 percent Slate photo overlay",
+   "pass": true,
+   "status": "pass",
+   "detail": "src/brand.js RULE, template layers, cover layers, opening layers"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B15",
+   "name": "The show name is never written another way, anywhere in the repository",
+   "pass": true,
+   "status": "pass",
+   "detail": "42 text files scanned; the name comes from one constant"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B16",
+   "name": "Video and SVG titles carry the exact show name",
+   "pass": true,
+   "status": "pass",
+   "detail": "MP4 title tags, SVG <title> elements"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B17",
+   "name": "No hype language in any visible text (rockets, moons, price talk)",
+   "pass": true,
+   "status": "pass",
+   "detail": "none found"
+  },
+  {
+   "cat": "Brand rules",
+   "id": "B18",
+   "name": "No personal credit anywhere: no names, handles, signatures or made-by lines, in files or metadata",
+   "pass": true,
+   "status": "pass",
+   "detail": "text, MP4 tags, PDF author and PNG metadata all clean"
+  },
+  {
+   "cat": "Licences",
+   "id": "L01",
+   "name": "Each stand-in photo: file hash matches the record, and its dated page capture shows the public domain (CC0) mark",
+   "pass": true,
+   "status": "pass",
+   "detail": "man-suit: 5ChqIJeC... sha 1a2e853da5 ok; man-glasses: MAa023BN... sha ef8a367c62 ok; woman-headshot: oQPjaaRQ... sha a42aa629e5 ok"
+  },
+  {
+   "cat": "Licences",
+   "id": "L02",
+   "name": "Captured Nappy licence page states CC0 and commercial use",
+   "pass": true,
+   "status": "pass",
+   "detail": "Retrieved: 2026-10-22T20:14:47.990Z"
+  },
+  {
+   "cat": "Licences",
+   "id": "L03",
+   "name": "Licences file covers fonts, logos, music, photos and tools, and lists every photo source",
+   "pass": true,
+   "status": "pass",
+   "detail": "deliverables/6-licences/LICENCES.md"
+  },
+  {
+   "cat": "Licences",
+   "id": "L04",
+   "name": "Score is generated in code: no audio files are read, only cues",
+   "pass": true,
+   "status": "pass",
+   "detail": "tools/score.py synthesises every sound from sine waves and seeded noise"
+  },
+  {
+   "cat": "Audio",
+   "id": "A01",
+   "name": "Loudness of the score WAV: -16 LUFS integrated (podcast target), true peak at or below -1 dBTP",
+   "pass": true,
+   "status": "pass",
+   "detail": "-15.6 LUFS, true peak -2.9 dBTP, LRA 6.9 LU"
+  },
+  {
+   "cat": "Audio",
+   "id": "A02",
+   "name": "Loudness of the landscape MP4: -16 LUFS integrated (podcast target), true peak at or below -1 dBTP",
+   "pass": true,
+   "status": "pass",
+   "detail": "-15.7 LUFS, true peak -2.8 dBTP, LRA 6.9 LU"
+  },
+  {
+   "cat": "Audio",
+   "id": "A03",
+   "name": "Loudness of the vertical MP4: -16 LUFS integrated (podcast target), true peak at or below -1 dBTP",
+   "pass": true,
+   "status": "pass",
+   "detail": "-15.7 LUFS, true peak -2.8 dBTP, LRA 6.9 LU"
+  },
+  {
+   "cat": "Audio",
+   "id": "A04",
+   "name": "No clipping: sample peak below 0 dBFS",
+   "pass": true,
+   "status": "pass",
+   "detail": "sample peak -2.95 dBFS"
+  },
+  {
+   "cat": "Audio",
+   "id": "A05",
+   "name": "Ends in digital silence for a clean cut",
+   "pass": true,
+   "status": "pass",
+   "detail": "last 0.2 s peak 0.0"
+  },
+  {
+   "cat": "Audio",
+   "id": "A06",
+   "name": "Audio and picture are the same length",
+   "pass": true,
+   "status": "pass",
+   "detail": "16.000 s audio, 16.000 s video"
+  },
+  {
+   "cat": "Audio",
+   "id": "A07",
+   "name": "The impact lands on the picture: silence just before 12.00 s, the hit right at it",
+   "pass": true,
+   "status": "pass",
+   "detail": "-240.0 dBFS in the gap, -13.6 dBFS in the first 60 ms after 12.00 s"
+  },
+  {
+   "cat": "Audio",
+   "id": "A08",
+   "name": "A sound starts on every ring lift and every ring pass (a clear onset within 40 ms of each picture cue)",
+   "pass": true,
+   "status": "pass",
+   "detail": "14 cues; weakest onset 2.2x the median spectral flux, median 3.3x"
+  },
+  {
+   "cat": "Audio",
+   "id": "A09",
+   "name": "No voice: a speech detector (Silero VAD) finds no speech in the score",
+   "pass": true,
+   "status": "pass",
+   "detail": "0 speech segments, 0.00 s in total"
+  },
+  {
+   "cat": "Audio",
+   "id": "A10",
+   "name": "Balanced and mono-safe: no octave more than 10 dB above 1 kHz, stereo correlation positive",
+   "pass": true,
+   "status": "pass",
+   "detail": "63 Hz +5.3 dB, 250 Hz +0.3 dB, 1000 Hz +0.0 dB, 4000 Hz -2.9 dB, 12000 Hz -11.8 dB; L/R correlation 0.69"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V01",
+   "name": "Smooth motion, landscape: 960 frames at a constant 60 fps, no repeated or dropped frames while things move",
+   "pass": true,
+   "status": "pass",
+   "detail": "960 frames; 0 repeats in 3.6 to 12.4 s; largest frame-to-frame change 1.63x its neighbours (median change 2.20)"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V03",
+   "name": "Landscape ends on solid Slate, ready for a straight cut",
+   "pass": true,
+   "status": "pass",
+   "detail": "mean RGB [50.0, 54.0, 62.0] vs Slate [52, 55, 64], spread 0.02"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V05",
+   "name": "Clean encode and sharp text, landscape: H.264 output against the rendered frames",
+   "pass": true,
+   "status": "pass",
+   "detail": "mean PSNR 37.1 dB over 5 frames; 36.2 dB on the band holding the show name at 14.2 s"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V07",
+   "name": "Landscape is laid out for its own frame: the name is centred with clear margins",
+   "pass": true,
+   "status": "pass",
+   "detail": "left margin 29.9%, right margin 29.9% of the width"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V02",
+   "name": "Smooth motion, vertical: 960 frames at a constant 60 fps, no repeated or dropped frames while things move",
+   "pass": true,
+   "status": "pass",
+   "detail": "960 frames; 0 repeats in 3.6 to 12.4 s; largest frame-to-frame change 1.92x its neighbours (median change 2.10)"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V04",
+   "name": "Vertical ends on solid Slate, ready for a straight cut",
+   "pass": true,
+   "status": "pass",
+   "detail": "mean RGB [50.0, 54.0, 62.0] vs Slate [52, 55, 64], spread 0.02"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V06",
+   "name": "Clean encode and sharp text, vertical: H.264 output against the rendered frames",
+   "pass": true,
+   "status": "pass",
+   "detail": "mean PSNR 37.7 dB over 5 frames; 35.7 dB on the band holding the show name at 14.2 s"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V08",
+   "name": "Vertical is laid out for its own frame: the name is centred with clear margins",
+   "pass": true,
+   "status": "pass",
+   "detail": "left margin 16.7%, right margin 16.8% of the width"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V09",
+   "name": "Cover reads small: \"Off Paper\" cap height at podcast-app sizes, Mint on Blue contrast",
+   "pass": true,
+   "status": "pass",
+   "detail": "36 px cap height at 300 px, 6.7 px at 55 px; Mint on Blue 8.9:1 (WCAG AAA)"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V10",
+   "name": "Thumbnail titles read on a phone: smallest title size in a 360 px feed, Light Mint on Blue contrast",
+   "pass": true,
+   "status": "pass",
+   "detail": "18.0 px; Light Mint on Blue 9.6:1 (WCAG AAA)"
+  },
+  {
+   "cat": "Visual quality and motion",
+   "id": "V11",
+   "name": "The SVG template renders the same outside the browser (resvg vs the maker PNG)",
+   "pass": true,
+   "status": "pass",
+   "detail": "PSNR 37.2 dB"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U01",
+   "name": "Maker loads with no errors",
+   "pass": true,
+   "status": "pass",
+   "detail": "ready in 181 ms"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U02",
+   "name": "Every input has a label",
+   "pass": true,
+   "status": "pass",
+   "detail": "all labelled"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U03",
+   "name": "Uploaded JPG is placed in the coin and treated as a photo",
+   "pass": true,
+   "status": "pass",
+   "detail": "cutout=false"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U04",
+   "name": "Photo framing sliders appear after upload",
+   "pass": true,
+   "status": "pass",
+   "detail": ""
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U05",
+   "name": "A well-formed episode shows no warnings and the ready message",
+   "pass": true,
+   "status": "pass",
+   "detail": "ready"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U06",
+   "name": "Typed title appears in the preview",
+   "pass": true,
+   "status": "pass",
+   "detail": "What tokenised funds change for investors"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U07",
+   "name": "Left/right slider moves the photo",
+   "pass": true,
+   "status": "pass",
+   "detail": "x 945.0 -> 1077.0"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U08",
+   "name": "Download PNG gives a 1920 x 1080 PNG named after the episode",
+   "pass": true,
+   "status": "pass",
+   "detail": "off-paper-ep33-thumbnail.png 1920x1080"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U09",
+   "name": "Download 1280 gives a 1280 x 720 PNG",
+   "pass": true,
+   "status": "pass",
+   "detail": "off-paper-ep33-thumbnail-1280.png 1280x720"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U10",
+   "name": "Downloaded SVG keeps every slot as a named, editable layer",
+   "pass": true,
+   "status": "pass",
+   "detail": "Episode number, Title, Guest name, Guest organisation, Guest photo"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U11",
+   "name": "Downloaded SVG is self-contained (photo and logo embedded)",
+   "pass": true,
+   "status": "pass",
+   "detail": "all href are data: URIs"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U12",
+   "name": "Time from opening the maker to a finished PNG",
+   "pass": true,
+   "status": "pass",
+   "detail": "1.8 s for 4 fields, 1 upload, 1 click (automated)"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U13",
+   "name": "The SVG renders outside the browser (resvg, Montserrat only)",
+   "pass": true,
+   "status": "pass",
+   "detail": "1920x1080; compared with the maker PNG in verify.py"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U14",
+   "name": "A transparent PNG is detected as a cut-out",
+   "pass": true,
+   "status": "pass",
+   "detail": ""
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U15",
+   "name": "Titles of every length: at least 96 px, 3 lines or a warning",
+   "pass": true,
+   "status": "pass",
+   "detail": "11ch:124px/1l 28ch:124px/3l 31ch:124px/3l 32ch:124px/3l 45ch:96px/3l 60ch:96px/5l/warn 106ch:96px/8l/warn"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U16",
+   "name": "Titles up to 45 characters fit without any warning",
+   "pass": true,
+   "status": "pass",
+   "detail": ""
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U17",
+   "name": "An over-long title is caught with a warning",
+   "pass": true,
+   "status": "pass",
+   "detail": "106 characters"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U18",
+   "name": "Smallest title on a 360 px wide phone thumbnail is at least 18 px",
+   "pass": true,
+   "status": "pass",
+   "detail": "18.0 px"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U19",
+   "name": "A long guest name shrinks to fit; an impossible one warns",
+   "pass": true,
+   "status": "pass",
+   "detail": "shrunk to 42 px"
+  },
+  {
+   "cat": "Template usability (browser tests)",
+   "id": "U20",
+   "name": "A non-numeric episode number is flagged",
+   "pass": true,
+   "status": "pass",
+   "detail": ""
+  }
+ ]
+}

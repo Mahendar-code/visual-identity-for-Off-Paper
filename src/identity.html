@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Off Paper - Powered by Tokeniser, identity sheet</title>
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  :root { --slate:#343740; --mint:#A2FFC8; --lmint:#DAFDE5; --lblue:#C9DBF1; --blue:#323B70; --teal:#009C9C; --orange:#FF9A81; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--slate); }
+  body { font-family: Montserrat; color: var(--lmint); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: var(--slate); padding: 64px 96px 0; break-after: page; }
+  .bar { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 18px; border-bottom: 3px solid var(--mint); margin-bottom: 36px; }
+  .bar .nm { font-size: 26px; font-weight: 700; color: var(--mint); }
+  .bar .nm span { font-weight: 500; color: var(--lmint); }
+  .bar .pg { font-size: 15px; font-weight: 600; letter-spacing: 0.16em; color: var(--lblue); }
+  .foot { position: absolute; left: 96px; right: 96px; bottom: 34px; display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; color: var(--lblue); }
+  h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; color: var(--mint); margin: 0 0 14px; }
+  h1 { font-size: 64px; font-weight: 700; margin: 0 0 14px; line-height: 1; color: var(--lmint); }
+  p { margin: 0; }
+  .lede { font-size: 21px; font-weight: 500; line-height: 1.5; color: var(--lblue); }
+  .small { font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--lblue); }
+  .small b, .lede b { color: var(--lmint); font-weight: 600; }
+  .cols { display: grid; grid-template-columns: 820px minmax(0, 1fr); gap: 72px; }
+  .cap { font-size: 14px; font-weight: 500; color: var(--lblue); margin-top: 8px; line-height: 1.45; }
+  svg { display: block; }
+  .logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 92px; gap: 16px; align-items: start; }
+  .logos div > svg { width: 100%; height: auto; border-radius: 3px; }
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 26px; }
+  .rules ul { margin: 0; padding-left: 18px; font-size: 15px; font-weight: 500; line-height: 1.55; color: var(--lmint); }
+  .rules li::marker { color: var(--mint); }
+  .rules .no li::marker { color: var(--orange); }
+  .swatches { display: grid; grid-template-columns: repeat(7, 1fr); gap: 16px; }
+  .sw .chip { height: 96px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(201,219,241,0.25); }
+  .sw .n { font-size: 19px; font-weight: 700; margin-top: 12px; color: var(--lmint); }
+  .sw .v { font-size: 14px; font-weight: 500; color: var(--lblue); line-height: 1.5; margin-top: 4px; }
+  .share { display: flex; height: 18px; margin: 22px 0 6px; border-radius: 3px; overflow: hidden; }
+  table { border-collapse: collapse; font-size: 14px; font-weight: 500; color: var(--lmint); }
+  td, th { padding: 6px 14px 6px 0; text-align: left; border-bottom: 1px solid rgba(201,219,241,0.18); }
+  th { color: var(--lblue); font-weight: 600; }
+  .type { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 48px; }
+  .spec { display: grid; grid-template-columns: 180px 1fr; align-items: baseline; padding: 7px 0; border-bottom: 1px solid rgba(201,219,241,0.18); }
+  .spec .w { font-size: 15px; font-weight: 600; color: var(--mint); }
+  .spec .s { color: var(--lmint); line-height: 1.1; }
+  .spec .u { grid-column: 2; font-size: 14px; font-weight: 500; color: var(--lblue); margin-top: 6px; }
+  .tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; }
+  .tile div > svg { width: 100%; height: auto; border-radius: 4px; }
+  .tile .t { font-size: 17px; font-weight: 700; margin-top: 10px; }
+  .row3 { display: grid; grid-template-columns: 430px 640px 1fr; gap: 44px; margin-top: 34px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .pair img, .pair div > svg { width: 100%; height: auto; border-radius: 4px; }
+  .frames { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .frames figure { margin: 0; }
+  .frames img { width: 100%; display: block; border-radius: 3px; }
+  .frames figcaption { font-size: 12.5px; font-weight: 500; color: var(--lblue); margin-top: 4px; }
+  .apps { display: grid; grid-template-columns: 170px 96px 1fr; gap: 12px; align-items: end; }
+  .apps img { width: 100%; display: block; border-radius: 3px; }
+</style>
+</head>
+<body>
+<!-- PAGE 1: idea, name, logo -->
+<section class="page">
+  <div class="bar"><div class="nm">Off Paper <span>- Powered by Tokeniser</span></div><div class="pg">IDENTITY SHEET  1 / 3  IDEA, NAME, LOGO</div></div>
+  <div class="cols">
+    <div>
+      <h2>CONCEPT</h2>
+      <h1>The Lift</h1>
+      <p class="lede">Real-world assets have weight: land, buildings, funds held on paper. Off Paper is the show about lifting them onto the chain. Every piece is built on <b>one horizon</b>. Below it lies <b>the ground</b>, the real world. Above it, <b>rings</b> lift off the line and turn to face you: the tokens. Running to it, <b>rails</b>: the chain.</p>
+      <div style="margin-top:30px" id="primary"></div>
+      <p class="cap"><b style="color:var(--lmint)">Primary lockup.</b> "Off Paper" (Montserrat Bold, Mint) stands on the horizon rule; "- Powered by Tokeniser" (Medium, Light Mint) and the Tokeniser logo sit beneath it, the logo aligned to the end of the rule. Used on the cover and the end of the opening.</p>
+      <div style="margin-top:22px" id="compact"></div>
+      <p class="cap"><b style="color:var(--lmint)">Compact lockup.</b> The full name on one line in two weights, with the logo at the far edge. Used on thumbnails and small spaces.</p>
+    </div>
+    <div>
+      <h2>THE NAME</h2>
+      <p class="small">Always written exactly <b>Off Paper - Powered by Tokeniser</b>: the ordinary hyphen-minus, a single space on each side, and these capitals. Never an en or em dash, extra punctuation, words run together or all caps. The name lives in one constant, <b>SHOW_NAME</b> in src/brand.js, and the automated checks fail on any other form.</p>
+      <h2 style="margin-top:34px">TOKENISER LOGO, AS SUPPLIED</h2>
+      <div class="logos">
+        <div><div id="lg1"></div><p class="cap">tokeniser-logo-on-dark.png on Slate</p></div>
+        <div><div id="lg2"></div><p class="cap">The same file on Blue and on photos</p></div>
+        <div><div id="lg3"></div><p class="cap">tokeniser-logo-slate-green-icon.png on Light Mint or Light Blue</p></div>
+        <div><div id="lg4"></div><p class="cap">tokeniser-logo-on-mint.png: avatars</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:420px 1fr;gap:28px;margin-top:26px;align-items:center">
+        <div id="clear"></div>
+        <p class="small"><b>Clear space:</b> one logo height on every side. <b>Minimum size:</b> 160 px wide on screen, 30 mm in print. The logo always sits next to the name, never inside a line of copy.</p>
+      </div>
+      <div class="rules">
+        <div><h2>ALWAYS</h2><ul><li>Use the three supplied PNG files.</li><li>Scale width and height together.</li><li>Pick the file that matches the background.</li></ul></div>
+        <div class="no"><h2>NEVER</h2><ul><li>Recolour, redraw or retype the logo.</li><li>Stretch, rotate, crop or outline it.</li><li>Add shadows, glows or effects to it.</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Built from the Tokeniser colours, Montserrat and the Tokeniser logo files, and nothing else.</span><span>Off Paper - Powered by Tokeniser</span></div>
+</section>
+
+<!-- PAGE 2: colour and type -->
+<section class="page">
+  <div class="bar"><div class="nm">Off Paper <span>- Powered by Tokeniser</span></div><div class="pg">IDENTITY SHEET  2 / 3  COLOUR AND TYPE</div></div>
+  <h2>COLOUR: THE TOKENISER PALETTE, NOTHING ELSE</h2>
+  <div class="swatches" id="swatches"></div>
+  <div style="display:grid;grid-template-columns:1fr 560px;gap:56px;margin-top:6px">
+    <div>
+      <div class="share" id="share"></div>
+      <p class="cap">Share of a typical frame: Slate ground and Blue sky carry the show; Mint is the signal (name, rings, horizon); Light Mint for titles; Teal and Light Blue for the ground lines and rails. Orange is in the palette but is never used in show art: on a finance show it would look like a warning or a falling price. Light and haze are one palette colour laid over another at lower opacity.</p>
+    </div>
+    <div><table id="contrast"><tr><th>Text on background</th><th>Contrast</th><th>WCAG 2</th></tr></table></div>
+  </div>
+  <h2 style="margin-top:22px">TYPE: MONTSERRAT ONLY</h2>
+  <div class="type">
+    <div>
+      <div class="spec"><div class="w">Bold 700</div><div class="s" style="font-weight:700;font-size:46px">Off Paper</div><div class="u">The show name and episode titles. Titles are sentence case.</div></div>
+      <div class="spec"><div class="w">SemiBold 600</div><div class="s" style="font-weight:600;font-size:32px">Guest Name</div><div class="u">Guest names; labels in capitals with 16 to 18 percent tracking (EPISODE 28).</div></div>
+      <div class="spec"><div class="w">Medium 500</div><div class="s" style="font-weight:500;font-size:28px">- Powered by Tokeniser</div><div class="u">The second part of the name, guest roles and organisations, captions.</div></div>
+      <div class="spec"><div class="w">Regular 400</div><div class="s" style="font-weight:400;font-size:22px">Long-form copy and descriptions.</div><div class="u">Body text in documents and show notes.</div></div>
+    </div>
+    <div>
+      <table style="width:100%">
+        <tr><th>Where</th><th>Size</th><th>Rule</th></tr>
+        <tr><td>Cover, "Off Paper"</td><td>520 px on 3000</td><td>Readable at 55 px app icon size</td></tr>
+        <tr><td>Thumbnail title</td><td>96 to 124 px on 1920</td><td>At most 3 lines; at least 18 px on a 360 px phone thumbnail</td></tr>
+        <tr><td>Thumbnail guest name</td><td>40 to 52 px</td><td>One line, shrinks to fit</td></tr>
+        <tr><td>Opening, "Off Paper"</td><td>150 px (16:9), 140 px (9:16)</td><td>The only text on screen, with the logo</td></tr>
+        <tr><td>Sub line</td><td>0.24 of the name size</td><td>Always under the horizon rule</td></tr>
+      </table>
+      <p class="cap" style="margin-top:14px">Montserrat is free under the SIL Open Font License 1.1 (Google Fonts). It is the only typeface in every file, including this PDF.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Slate #343740, Mint #A2FFC8, Light Mint #DAFDE5 (primary). Light Blue #C9DBF1, Blue #323B70, Teal #009C9C, Orange #FF9A81 (secondary).</span><span>Off Paper - Powered by Tokeniser</span></div>
+</section>
+
+<!-- PAGE 3: devices, photos, motion, applications -->
+<section class="page">
+  <div class="bar"><div class="nm">Off Paper <span>- Powered by Tokeniser</span></div><div class="pg">IDENTITY SHEET  3 / 3  DEVICES, PHOTOS, MOTION</div></div>
+  <h2>GRAPHIC DEVICES: 70 PERCENT OPACITY ON SOLID COLOUR, 60 PERCENT ON PHOTOS</h2>
+  <div class="tiles">
+    <div class="tile"><div id="d1"></div><div class="t">Horizon</div><p class="cap">One line across every layout: the real world below, tokens above. It is also the rule in the show name.</p></div>
+    <div class="tile"><div id="d2"></div><div class="t">Ground lines</div><p class="cap">Teal ridgelines: land, buildings, assets with weight. Near lines rise and fall; far lines flatten.</p></div>
+    <div class="tile"><div id="d3"></div><div class="t">Rings</div><p class="cap">Mint tokens lifting off the horizon and turning to face you, heavier on the near edge like a coin's rim.</p></div>
+    <div class="tile"><div id="d4"></div><div class="t">Rails</div><p class="cap">The chain: the ground lines made straight, Light Blue rails running to the horizon.</p></div>
+    <div class="tile"><div id="d5"></div><div class="t">Light</div><p class="cap">Dawn along the horizon, glints on rings, pulses on rails, drifting motes. Light is never a device and never another colour.</p></div>
+  </div>
+  <div class="row3">
+    <div>
+      <h2>PHOTOS</h2>
+      <div class="pair"><img id="ph-before" alt="Supplied photo"><div id="ph-after"></div></div>
+      <p class="cap">Guests sit in the coin: a Light Blue backdrop (cut-outs look best), a <b style="color:var(--lmint)">30 percent Slate overlay</b> on the photo, the rim at 70 percent on colour and the orbit at 60 percent where it crosses the photo. The maker applies all of it.</p>
+    </div>
+    <div>
+      <h2>MOTION: THE OPENING, 16 SECONDS</h2>
+      <div class="frames" id="frames"></div>
+      <p class="cap">Unhurried, precise easing and a single unbroken camera move. Music without voice; the name and logo are the only text. The last frames are solid Slate, ready for a hard cut.</p>
+    </div>
+    <div>
+      <h2>APPLICATIONS</h2>
+      <div class="apps"><img src="previews/cover.jpg" alt="Cover art"><img src="previews/vertical-poster.jpg" alt="Vertical opening, end frame"><img src="previews/ep28.jpg" alt="Episode thumbnail"></div>
+      <p class="cap">Cover 3000 x 3000, the 9:16 opening and a 16:9 thumbnail: one horizon, one name, one set of rings.</p>
+    </div>
+  </div>
+  <div class="foot"><span>All of these rules are written into src/brand.js, which every visual imports.</span><span>Off Paper - Powered by Tokeniser</span></div>
+</section>
+
+<script type="module">
+import { loadFonts, W } from './brand.js';
+import * as I from './identity.js';
+await loadFonts();
+const put = (id, html) => { document.getElementById(id).innerHTML = html; };
+put('primary', I.primaryLockup());
+put('compact', I.compactLockup());
+put('lg1', I.logoOn('dark', I.C.slate));
+put('lg2', I.logoOn('dark', I.C.blue));
+put('lg3', I.logoOn('light', I.C.lightMint));
+put('lg4', I.logoOn('mint'));
+put('clear', I.clearSpace());
+const sw = [
+  ['Slate', I.C.slate, 'Primary. The ground: base of every surface.'],
+  ['Mint', I.C.mint, 'Primary. The name, rings, the horizon, light.'],
+  ['Light Mint', I.C.lightMint, 'Primary. Titles and primary text.'],
+  ['Blue', I.C.blue, 'Secondary. The sky above the horizon.'],
+  ['Teal', I.C.teal, 'Secondary. Ground lines.'],
+  ['Light Blue', I.C.lightBlue, 'Secondary. Supporting text, rails, photo backdrop.'],
+  ['Orange', I.C.orange, 'Secondary. Not used in show art.'],
+];
+const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)).join(', ');
+put('swatches', sw.map(([n, h, r]) => `<div class="sw"><div class="chip" style="background:${h}"></div><div class="n">${n}</div><div class="v">${h}<br>RGB ${rgb(h)}<br>${r}</div></div>`).join(''));
+const share = [[I.C.slate, 46], [I.C.blue, 30], [I.C.mint, 9], [I.C.lightMint, 7], [I.C.teal, 5], [I.C.lightBlue, 3]];
+put('share', share.map(([c, p]) => `<div style="background:${c};width:${p}%;box-shadow:inset 0 0 0 1px rgba(201,219,241,0.2)"></div>`).join(''));
+const pairs = [['Light Mint', I.C.lightMint, 'Blue', I.C.blue], ['Mint', I.C.mint, 'Blue', I.C.blue], ['Light Mint', I.C.lightMint, 'Slate', I.C.slate], ['Mint', I.C.mint, 'Slate', I.C.slate], ['Light Blue', I.C.lightBlue, 'Slate', I.C.slate], ['Slate', I.C.slate, 'Mint', I.C.mint]];
+document.getElementById('contrast').insertAdjacentHTML('beforeend', pairs.map(([a, ca, b, cb]) => { const r = I.contrast(ca, cb); return `<tr><td><span style="color:${ca};background:${cb};padding:2px 8px;border-radius:3px;font-weight:600">${a}</span> on ${b}</td><td>${r.toFixed(1)} : 1</td><td>${r >= 7 ? 'AAA' : r >= 4.5 ? 'AA' : 'AA large'}</td></tr>`; }).join(''));
+put('d1', I.tileHorizon()); put('d2', I.tileGround()); put('d3', I.tileRings()); put('d4', I.tileRails()); put('d5', I.tileLight());
+const photos = await (await fetch('./photos/photos.json')).json();
+const ph = photos.find((p) => p.id === 'man-glasses');
+document.getElementById('ph-before').src = `photos/${ph.file}`;
+const cut = new Image(); cut.src = 'photos/cutout/stand-in-man-glasses.png'; await cut.decode();
+put('ph-after', I.coinDemo(cut.src, cut.naturalWidth, cut.naturalHeight));
+const fr = [[1.5, 'Dawn over the ground'], [4.6, 'Contours lift as rings'], [6.8, 'Rings turn, land becomes rails'], [10.2, 'The run through the rings'], [12.6, 'The name lands on the horizon'], [14.2, 'Hold, then Slate']];
+put('frames', fr.map(([t, c]) => `<figure><img src="previews/landscape-${t.toFixed(1).padStart(4, '0')}.jpg" alt=""><figcaption>${t.toFixed(1)} s  ${c}</figcaption></figure>`).join(''));
+await Promise.all([...document.images].map((i) => (i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))));
+await Promise.all([...document.querySelectorAll('image')].map((i) => new Promise((r) => { const t = new Image(); t.onload = t.onerror = r; t.src = i.getAttribute('href'); })));
+await document.fonts.ready;
+await new Promise((r) => setTimeout(r, 400));
+window.ready = true;
+</script>
+</body>
+</html>

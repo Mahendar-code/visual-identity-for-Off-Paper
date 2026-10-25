@@ -1,0 +1,56 @@
+[
+  {
+    "id": "man-suit",
+    "file": "stand-in-man-suit.jpg",
+    "title": "Man in suit",
+    "photographer": "NappyStock",
+    "photographer_page": "https://nappy.co/user/NappyStock",
+    "nappy_id": "5ChqIJeCtA5-GcyU8IyIz",
+    "source_page": "https://nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz",
+    "download_url": "https://images.nappy.co/photo/5ChqIJeCtA5-GcyU8IyIz.jpg",
+    "licence": "CC0 1.0 (Nappy License: https://nappy.co/license)",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "retrieved": "2026-10-22",
+    "size": [
+      1707,
+      2560
+    ],
+    "sha256": "1a2e853da590631fe005f709f4a2510c1a1e941fc4459f6e561852a134c0c98b"
+  },
+  {
+    "id": "man-glasses",
+    "file": "stand-in-man-glasses.jpg",
+    "title": "male portrait",
+    "photographer": "3ee71b65",
+    "photographer_page": "https://nappy.co/user/3ee71b65",
+    "nappy_id": "MAa023BNp212G1miDe2OL",
+    "source_page": "https://nappy.co/photo/MAa023BNp212G1miDe2OL",
+    "download_url": "https://images.nappy.co/photo/MAa023BNp212G1miDe2OL.jpg",
+    "licence": "CC0 1.0 (Nappy License: https://nappy.co/license)",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "retrieved": "2026-10-22",
+    "size": [
+      1920,
+      2880
+    ],
+    "sha256": "ef8a367c62c285672413bada481c981de5e2747771f318ae1ff785e87a32aef3"
+  },
+  {
+    "id": "woman-headshot",
+    "file": "stand-in-woman-headshot.jpg",
+    "title": "Womens Lifestyle Headshot",
+    "photographer": "starnes",
+    "photographer_page": "https://nappy.co/user/starnes",
+    "nappy_id": "oQPjaaRQjJB50NIVDsqnS",
+    "source_page": "https://nappy.co/photo/oQPjaaRQjJB50NIVDsqnS",
+    "download_url": "https://images.nappy.co/photo/oQPjaaRQjJB50NIVDsqnS.jpg",
+    "licence": "CC0 1.0 (Nappy License: https://nappy.co/license)",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "retrieved": "2026-10-22",
+    "size": [
+      5409,
+      3606
+    ],
+    "sha256": "a42aa629e5828d4021e8b5be02eef15a6fce043110de0e063da8b975a455e952"
+  }
+]
